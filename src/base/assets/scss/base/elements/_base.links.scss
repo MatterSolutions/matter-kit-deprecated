@@ -1,0 +1,45 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Links
+*	Base styling for anchor tags / links
+*
+ ---------------------------------------------------------- */
+
+$mk-link-text-decoration: 			underline;
+$mk-link-text-decoration--hover:	none;
+
+a {
+
+	color: $mk-color-link;
+	text-decoration: $mk-link-text-decoration;
+
+	&:visited {
+
+		color: $mk-color-link--visited;
+
+	}
+
+
+	&:hover {
+
+		color: $mk-color-link--hover;
+		text-decoration: $mk-link-text-decoration--hover;
+
+	}
+
+
+	&:active {
+
+		color: $mk-color-link--active;
+
+	}
+
+
+}

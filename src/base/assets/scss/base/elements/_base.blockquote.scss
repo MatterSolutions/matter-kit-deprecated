@@ -1,0 +1,19 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Standard blockquote styling, this is very basic
+*	Feature blockquotes can be used for opt-in specific styling
+*
+ ---------------------------------------------------------- */
+
+blockquote {
+
+	@extend .u-text--large;
+
+}

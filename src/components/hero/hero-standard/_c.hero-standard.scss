@@ -1,0 +1,428 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Hero Standard
+*	One to rule them all
+*	All purpose standard hero, suitable for most purposes
+*	Ideally has an image.
+* 	
+ ---------------------------------------------------------- */
+
+// Hero Widths
+$mk-hero-standard-enable--wide: 				true !default; // Full width
+$mk-hero-standard-enable--extend: 				true !default; // Extend a column either side
+
+
+// Indicator
+$mk-hero-standard-enable--indicator: 			false !default; // Enable scroll indicator
+
+
+// Alignment
+$mk-hero-standard-enable--center: 				true !default; // Center alignment
+$mk-hero-standard-enable--left: 				true !default; // Left Alignment
+$mk-hero-standard-enable--right: 				false !default; // Right alignment
+
+$mk-hero-standard-enable--bottom: 				false !default; // Bottom alignment
+$mk-hero-standard-enable--top: 					false !default; // Top alignment
+
+
+// Sizes
+$mk-hero-standard-enable--large: 				true !default; // Large size
+$mk-hero-standard-enable--fullscreen: 			false !default; // Fullscreen size
+
+$mk-hero-standard-enable--petite: 				true !default; // Wrap--petite 
+$mk-hero-standard-enable--narrow: 				true !default; // 50% width of grid on desk
+
+
+// Overlay
+$mk-hero-standard-enable--overlay: 				true !default; // Add tint/overlay
+
+
+// Text Shadow
+$mk-hero-standard-enable--text-shadow: 			false !default; // Add tint/overlay
+
+
+// Hero Title
+$mk-hero-standard-enable-display-heading: 		true !default; // False defaults to h1 styles
+$mk-hero-standard-display-heading-size: 		gamma !default; // none, beta, gamma
+
+
+
+
+$hero-standard-padding-size: 					( $mk-base-spacing-unit--huge );
+$hero-standard-padding-size--large: 			( $mk-base-spacing-unit--large * 2.5 );
+
+
+
+
+
+
+// Begin hero output
+.hero-standard {
+
+	@extend .band;
+	@extend .band--hero;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: ( $mk-grid-max-width - ( $mk-grid-page-gutter * 2 ) );
+	position: relative;
+	text-align: center;
+	padding-bottom: calc-rem( $hero-standard-padding-size );
+	padding-top: calc-rem( $hero-standard-padding-size );
+
+
+	a,
+	.display-heading {
+
+		color: inherit;
+
+	}
+
+
+
+	&__body {
+
+		@extend .overlay__body;
+		width: 100%;
+
+	}
+
+
+	
+	&__title {
+
+		// Check to see if title should be a display heading
+		@if ( $mk-hero-standard-enable-display-heading == true ) {
+
+			@extend .display-heading;
+
+			@if ( $mk-hero-standard-enable-display-heading != none ) {			
+			
+				@extend .display-heading--#{ $mk-hero-standard-display-heading-size };
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $mk-hero-standard-enable--indicator == true ) {
+
+		&__indicator {
+
+			bottom: calc-rem( $mk-base-spacing-unit );
+			display: inline-block;
+			height: calc-rem( $mk-base-spacing-unit );
+			left: 50%;
+			margin-left: -( calc-rem( $mk-base-spacing-unit--small ) );
+			position: absolute;
+			transition: all .2s ease;
+			width: calc-rem( $mk-base-spacing-unit );
+			z-index: 5;
+
+			&:hover {
+
+				bottom: calc-rem( $mk-base-spacing-unit--small );
+
+			}
+
+			&:after {
+
+				border-bottom: 2px solid $mk-color--white;
+				border-right: 2px solid $mk-color--white;
+				content: "";
+				display: inline-block;
+				height: calc-rem( $mk-base-spacing-unit--small );
+				transform: rotate( 45deg );
+				width: calc-rem( $mk-base-spacing-unit--small );
+
+			}
+
+		}
+
+	}
+
+
+
+
+	@if ( $mk-hero-standard-enable--wide == true ) {
+
+		&--wide {
+
+			max-width: none;
+
+		}
+
+	}
+
+
+	@if ( $mk-hero-standard-enable--extend == true ) {
+
+		&--extend {
+
+			max-width: $mk-wrap-max-size--extend;
+
+		}
+
+	}
+
+
+
+	@if ( $mk-hero-standard-enable--petite == true ) {
+
+		&--petite {
+
+			.hero-standard__content {
+
+				@extend .wrap--petite;
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $mk-hero-standard-enable--narrow == true ) {
+
+		&--narrow {
+
+			.hero-standard__content {
+
+				@include mk-media-query( "#{ $mk-element-breakpoint--content }" ) {
+
+					max-width: calc-rem( $mk-grid-max-width / 2 );
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	// Left alignment
+	@if ( $mk-hero-standard-enable--left == true ) {
+
+		&--left {
+
+			.hero-standard__content {
+
+				margin-left: 0;
+				margin-right: auto;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Right alignment
+	@if ( $mk-hero-standard-enable--right == true ) {
+
+		&--right {
+
+			.hero-standard__content {
+
+				margin-left: auto;
+				margin-right: 0;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Center
+	@if ( $mk-hero-standard-enable--center == true ) {
+
+		&--center {
+
+			.hero-standard__content,
+			.hero-standard__body {
+
+				@extend .u-block--center;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Bottom
+	@if ( $mk-hero-standard-enable--bottom == true ) {
+
+		&--bottom {
+			
+			padding-bottom: calc-rem( $hero-standard-padding-size * .5 );
+			padding-top: calc-rem( $hero-standard-padding-size * 1.5 );
+
+
+			@if ( $mk-hero-standard-enable--large == true ) {
+
+				&.hero-standard--large {
+
+					padding-bottom: calc-rem( $hero-standard-padding-size--large * .5 );
+					padding-top: calc-rem( $hero-standard-padding-size--large * 1.5 );
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Top
+	@if ( $mk-hero-standard-enable--top == true ) {
+
+		&--top {
+
+			padding-top: calc-rem( $hero-standard-padding-size * .5 );
+			padding-bottom: calc-rem( $hero-standard-padding-size * 1.5 );
+
+
+			@if ( $mk-hero-standard-enable--large == true ) {
+
+				&.hero-standard--large {
+
+					padding-top: calc-rem( $hero-standard-padding-size--large * .5 );
+					padding-bottom: calc-rem( $hero-standard-padding-size--large * 1.5 );
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+
+	@if ( $mk-hero-standard-enable--fullscreen == true ) {
+
+		&--fullscreen {
+
+			min-height: calc( 100vh - #{ calc-rem( $mk-site-header-height ) } );
+			display: -ms-flexbox;
+			display: -webkit-flex;
+			display: flex;
+
+			-ms-flex-align: center;
+			-webkit-align-items: center;
+			-webkit-box-align: center;
+
+			align-items: center;
+
+			/* fix iOS bug not displaying 100vh correctly */
+			/* ipad */
+			@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape) {
+
+				min-height: 768px;
+				
+			}
+			@media only screen and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait) {
+				
+				min-height: 1024px;
+				
+			}
+			/* iphone5 */
+			@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : landscape) and (-webkit-device-pixel-ratio: 2) {
+				
+				min-height: 320px;
+				
+			}
+			@media only screen and (min-device-width: 320px) and (max-device-height: 568px) and (orientation : portrait) and (-webkit-device-pixel-ratio: 2) {
+				
+				min-height: 568px;
+				
+			}
+			/* iPhone 4 */
+			@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : landscape) and (-webkit-min-device-pixel-ratio : 2) {
+				
+				min-height: 320px;
+				
+			}
+			@media only screen and (min-device-width : 320px) and (max-device-width : 480px) and (orientation : portrait) and (-webkit-min-device-pixel-ratio : 2) {
+				
+				min-height: 480px;
+				
+			}
+
+			@include mk-media-query( lap ) {
+
+				min-height: calc( 100vh - #{ calc-rem( $mk-site-header-height--at-bp ) } );
+				height: calc( 100vh - #{ calc-rem( $mk-site-header-height--at-bp ) } );
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Large
+	@if ( $mk-hero-standard-enable--large == true ) {
+
+		&--large {
+
+			padding-bottom: calc-rem( $hero-standard-padding-size--large );
+			padding-top: calc-rem( $hero-standard-padding-size--large );
+
+		}
+
+	}
+
+
+
+
+	// Overlay
+	@if ( $mk-hero-standard-enable--overlay == true ) {
+
+		&--overlay {
+
+			@extend .overlay;
+
+		}
+
+	}
+
+
+
+
+	// Text Shadow
+	@if ( $mk-hero-standard-enable--text-shadow == true ) {
+
+		&--text-shadow {
+
+			text-shadow: 2px 2px calc-rem( $mk-base-spacing-unit ) rgba( #000, .1 ),2px 2px calc-rem( $mk-base-spacing-unit--large ) rgba( #000, .2 );
+
+		}
+
+	}
+
+}

@@ -1,0 +1,335 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Button module with modifiers
+*	Primarily used with links or form button elements where an
+*	action is invoked when the element is clicked
+*
+* 	Dependancies:
+* 	- base.typography
+* 	- base.grid-setting
+* 	- base.colors
+*
+ ---------------------------------------------------------- */
+
+
+// Setup button type vars
+$btn--inverse:					false !default;
+$btn--secondary:				true !default;
+$btn--ghost:					true !default;
+$btn--fill:						true !default;
+
+$btn--small:					false !default;
+$btn--large:					false !default;
+
+
+
+// Module vars
+$btn-border-radius: 			$mk-base-border-radius;
+$btn-border-radius--small: 		$mk-base-border-radius;
+$btn-border-radius--large: 		( $mk-base-border-radius * 2 );
+
+
+$btn-text-size-base: 			$mk-base-font-size--small;
+$btn-text-size-base--large: 	$mk-base-font-size--large;
+$btn-text-size-base--small: 	$mk-base-font-size--tiny;
+$btn-text-transform: 			uppercase;
+$btn-text-weight:	 			$mk-type-weight-primary--bold;
+
+
+$btn-padding-x:					( $mk-base-spacing-unit + $mk-base-spacing-unit--nano );
+$btn-padding-y:					$mk-base-spacing-unit--tiny + $mk-base-spacing-unit--nano;
+
+$btn-padding-x--small:			$btn-padding-x * .75;
+$btn-padding-y--small:			$btn-padding-y * .75;
+
+$btn-padding-x--large:			$btn-padding-x * 1.25;
+$btn-padding-y--large:			$btn-padding-y * 1.25;
+
+$ghost-btn-border-size: 		1px !default;
+
+
+/*
+*	Start btn element
+*/
+
+.#{$mk-namespace}btn {
+
+	background-color: $mk-color-btn-primary-background;
+	border-radius: $btn-border-radius;
+	border: $ghost-btn-border-size solid $mk-color-btn-primary-border;
+	color: $mk-color-btn-primary;
+	cursor: pointer;
+	display: inline-block;
+	font-size: calc-rem( $btn-text-size-base );
+	font-weight: $btn-text-weight;
+	margin-bottom: calc-em( $mk-base-spacing-unit--nano );
+	padding: calc-em( $btn-padding-y )  calc-em( $btn-padding-x );
+	text-align: center;
+	text-decoration: none !important;
+	text-transform: $btn-text-transform;
+
+
+	&:link,
+	&:visited {
+
+		color: $mk-color-btn-primary;
+
+	}
+
+	&:hover,
+	&:active {
+
+		background-color: $mk-color-btn-primary-background--hover;
+		border: $ghost-btn-border-size solid $mk-color-btn-primary-background--hover;
+		color: $mk-color-btn-primary;
+
+	}
+
+
+
+	// Inversed version of the primary button
+	@if ( $btn--inverse  ==  true ) {
+
+		&--inverse {
+
+			background-color: $mk-color-btn-primary;
+			border: $ghost-btn-border-size solid $mk-color-btn-primary;
+			color: $mk-color-btn-primary-background;
+
+			&:link,
+			&:visited {
+
+				color: $mk-color-btn-primary-background;
+
+			}
+
+			&:hover,
+			&:active {
+
+				background-color: darken( $mk-color-btn-primary, 5% );
+				border: $ghost-btn-border-size solid darken( $mk-color-btn-primary, 5% );
+				color: $mk-color-btn-primary-background;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Secondary button
+	@if ( $btn--secondary  ==  true ) {
+
+		&--secondary {
+
+			background-color: $mk-color-btn-secondary-background;
+			border: $ghost-btn-border-size solid $mk-color-btn-secondary-background;
+			color: $mk-color-btn-secondary;
+
+			&:link,
+			&:visited {
+
+				color: $mk-color-btn-secondary;
+
+			}
+
+			&:hover,
+			&:active {
+
+				background-color: $mk-color-btn-secondary-background--hover;
+				border: $ghost-btn-border-size solid $mk-color-btn-secondary-background--hover;
+				color: $mk-color-btn-secondary;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Ghost button, transparent with outlines, then fills on hover
+	@if ( $btn--ghost  ==  true ) {
+
+		&--ghost {
+
+			background-color: transparent;
+			border: $ghost-btn-border-size solid $mk-color-btn-primary-background;
+			color: $mk-color-btn-primary-background;
+
+			&:link,
+			&:visited {
+
+				color: $mk-color-btn-primary-background;
+
+			}
+
+			&:hover,
+			&:active {
+
+				background-color: $mk-color-btn-primary-background;
+				border-color: $mk-color-btn-primary-background;
+				color: $mk-color-btn-primary;
+
+			}
+
+		}
+
+
+
+		&--ghost-secondary {
+
+			background-color: transparent;
+			border: $ghost-btn-border-size solid $mk-color-btn-secondary-background;
+			color: $mk-color-btn-secondary-background;
+
+			&:link,
+			&:visited {
+
+				color: $mk-color-btn-secondary-background;
+
+			}
+
+			&:hover,
+			&:active {
+
+				background-color: $mk-color-btn-secondary-background;
+				border-color: $mk-color-btn-secondary-background;
+				color: $mk-color-btn-secondary;
+
+			}
+
+		}
+
+
+
+		 &--ghost-white {
+
+			@extend .btn--ghost ;
+			border-color: $mk-color--white;
+
+			&:link,
+			&:visited {
+
+				color: $mk-color--white;
+
+			}
+
+			&:hover,
+			&:active {
+
+				background-color: $mk-color--white;
+				border-color: $mk-color--white;
+				color: $mk-color-btn-primary-background !important;
+
+			}
+
+		 }
+
+	}
+
+
+
+	// Larger sized button - has more padding
+	@if ( $btn--large  ==  true ) {
+
+		&--large {
+
+			border-radius: $btn-border-radius--large;
+			font-size: $btn-text-size-base--large;
+			line-height: 1;
+			padding: calc-em( $btn-padding-y--large )  calc-em( $btn-padding-x--large );
+
+		}
+
+	}
+
+
+
+	// Smaller sized button - has less padding than normal
+	@if ( $btn--small  ==  true ) {
+
+		&--small {
+
+			border-radius: $btn-border-radius--small;
+			padding: $btn-padding-y--small  $btn-padding-x--small;
+			font-size: calc-rem( $btn-text-size-base--small );
+
+		}
+
+	}
+
+
+
+	&--transparent {
+
+		background-color: transparent;
+		border-color: transparent;
+		color: inherit;
+
+		&:hover,
+		&:active {
+
+			background-color: transparent;
+			border-color: transparent;
+			color: inherit;
+
+		}
+
+	}
+
+
+
+	// Fill the horizontal space
+	@if ( $btn--fill  ==  true ) {
+
+		&--fill {
+
+			display: block;
+
+
+			// Fill horizontal space only on palm
+			&\@--palm {
+
+				@include mk-media-query( false, palm-h ) {
+
+					display: block;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+
+// Button styles
+button {
+
+	outline: none;
+	border: none;
+
+}
+
+
+
+// Make inputs and .submit buttons use the standard primary button
+input[type="submit"],
+.submit {
+
+	@extend .#{$mk-namespace}btn;
+
+}

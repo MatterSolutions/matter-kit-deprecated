@@ -1,0 +1,445 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Grid Feature - A
+*	Large Image, title over image
+*	Content can be centered, left or right aligned vertically and horizontally
+*
+ ---------------------------------------------------------- */
+
+// Enable modifiers
+$feature-a-enable-v-align--top: 		false !default;
+$feature-a-enable-v-align--bottom: 		true !default;
+$feature-a-enable-v-align--middle: 		true !default;
+
+$feature-a-enable-h-align--left: 		true !default;
+$feature-a-enable-h-align--center: 		true !default;
+$feature-a-enable-h-align--right: 		false !default;
+
+$feature-a-enable-ratio--rectangle:		false !default;
+
+$feature-a-enable--overlay:				true !default;
+
+$feature-a-enable--text-shadow: 		false !default;
+
+
+$feature-a-enable--primary:				$band--primary !default;
+$feature-a-enable--secondary:			$band--secondary !default;
+$feature-a-enable--tertiary:			$band--tertiary !default;
+$feature-a-enable--quaternary:			$band--quaternary !default;
+$feature-a-enable--senary:				$band--senary !default;
+$feature-a-enable--white:				$band--white !default;
+$feature-a-enable--grey:				$band--grey !default;
+
+
+
+
+// General style options
+$feature-a-padding: 					calc-rem( $mk-base-spacing-unit ); // Content padding
+
+
+$feature-a-title-color: 				$mk-color--white;
+$feature-a-title-background-color:		transparent;
+$feature-a-title-padding: 				0;	// Pads the title itself, to allow for a background colour
+
+
+$feature-a-bp: 							desk; // Element breakpoint to change ratio
+$feature-a-ratio: 						40%; // Mobile ratio
+$feature-a-ratio--at-bp: 				100%; // Change ratio at breakpoint size
+
+	
+
+// Hover effect, drawing lines	
+$feature-a-draw-lines: 					false; // Draw lines on hover
+
+
+
+
+/*
+*	Begin feature a
+*/
+.feature-a {
+
+	@extend .band;
+	@extend .band--hero;
+	display: block;
+	overflow: hidden;
+	padding-bottom: 0;
+	padding-top: 0;
+	position: relative;
+
+
+	@if ( $feature-a-draw-lines != false ) {
+		
+		&:after,
+		&:before {
+
+			content: "";
+			display: block;
+			height: 0;
+			opacity: 0;
+			position: absolute;
+			transition: all .4s ease .2s;
+			width: 0;
+			z-index: 2;
+			
+		}
+
+		&:before {
+
+			border-left: 1px solid $mk-color--white;
+			border-top: 1px solid $mk-color--white;
+			left: calc-rem( $mk-base-spacing-unit--small );
+			top: calc-rem( $mk-base-spacing-unit--small );
+
+		}
+
+
+		&:after {
+
+			border-bottom: 1px solid $mk-color--white;
+			border-right: 1px solid $mk-color--white;
+			bottom: calc-rem( $mk-base-spacing-unit--small );
+			right: calc-rem( $mk-base-spacing-unit--small );
+
+		}
+
+	}
+
+
+
+	/*
+	*	Hover styles
+	*/
+	&:hover {
+
+		@if ( $feature-a-draw-lines != false ) {
+
+			&:before,
+			&:after {
+
+				height: calc( 100% - #{ calc-rem( $mk-base-spacing-unit ) } );
+				opacity: 1;
+				width: calc( 100% - #{ calc-rem( $mk-base-spacing-unit ) } );
+
+			}
+
+		}
+
+
+
+		.feature-a__media {
+
+			transform: scale( 1.05 );
+
+		}
+
+	}
+
+
+
+
+
+	&__body {
+
+		margin: 0;
+		position: relative;
+
+	}
+
+
+
+		
+
+
+
+		&__media {
+
+			padding-bottom: 60%;
+			position: relative;
+			transform: scale( 1 );
+			transition: transform .4s ease;
+			z-index: 1;
+
+			@include mk-media-query( "#{ $feature-a-bp }" ) {
+
+				padding-bottom: 100%;
+
+			}
+
+			img {
+
+				display: none;
+
+			}
+
+		}
+
+
+
+
+		&__content {
+
+			padding: $feature-a-padding;
+			position: absolute;
+			width: 100%;
+			z-index: 6;
+
+		}
+
+
+
+			// Title overlays an image, set links to white
+			&__title {
+
+				background-color: $feature-a-title-background-color;
+				color: $feature-a-title-color !important;
+				display: inline-block;
+				font-size: calc-rem( $mk-base-font-size--large );
+				padding: $feature-a-title-padding;
+
+				a {
+
+					color: inherit;
+
+				}
+
+			}
+
+
+
+
+
+	// Output middle vertical positioning
+	@if ( $feature-a-enable-v-align--middle == true ) {
+
+		&--middle {
+
+			.feature-a__content {
+
+				@extend .u-vertical-center;
+
+			}
+
+		}
+
+	}
+
+
+	// Output top vertical positioning
+	@if ( $feature-a-enable-v-align--top == true ) {
+
+		&--top {
+
+			.feature-a__content {
+
+				top: 0;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Output bottom vertical positioning
+	@if ( $feature-a-enable-v-align--bottom == true ) {
+
+		&--bottom {
+
+			.feature-a__content {
+
+				bottom: 0;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	// Output left horizontal positioning
+	@if ( $feature-a-enable-h-align--left == true ) {
+
+		&--left {
+
+			.feature-a__content {
+
+				@extend .u-text--left;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Output right horizontal positioning
+	@if ( $feature-a-enable-h-align--right == true ) {
+
+		&--right {
+
+			.feature-a__content {
+
+				@extend .u-text--right;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Output center horizontal positioning
+	@if ( $feature-a-enable-h-align--center == true ) {
+
+		&--center {
+
+			.feature-a__content {
+
+				@extend .u-text--center;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Output rectangle ratio
+	@if ( $feature-a-enable-ratio--rectangle == true ) {
+
+		&--rectangle {
+
+			.feature-a__media {
+
+				padding-bottom: 75%;
+
+			}
+
+		}
+
+	}
+
+
+
+	// Enable overlay 
+	@if ( $feature-a-enable--overlay == true ) {
+
+		&--overlay {
+
+			@extend .overlay;
+
+		}
+
+	}
+
+
+
+
+	// Enable primary 
+	@if ( $feature-a-enable--primary == true ) {
+
+		&--primary {
+
+			@extend .band--primary;
+
+		}
+
+	}
+
+	// Enable secondary 
+	@if ( $feature-a-enable--secondary == true ) {
+
+		&--secondary {
+
+			@extend .band--secondary;
+
+		}
+
+	}
+
+	// Enable tertiary 
+	@if ( $feature-a-enable--tertiary == true ) {
+
+		&--tertiary {
+
+			@extend .band--tertiary;
+
+		}
+
+	}
+
+
+	// Enable quaternary 
+	@if ( $feature-a-enable--quaternary == true ) {
+
+		&--quaternary {
+
+			@extend .band--quaternary;
+
+		}
+
+	}
+
+
+	// Enable senary 
+	@if ( $feature-a-enable--senary == true ) {
+
+		&--senary {
+
+			@extend .band--senary;
+
+		}
+
+	}
+
+
+	// Enable white 
+	@if ( $feature-a-enable--white == true ) {
+
+		&--white {
+
+			@extend .band--white;
+
+		}
+
+	}
+
+
+	// Enable grey 
+	@if ( $feature-a-enable--grey == true ) {
+
+		&--grey {
+
+			@extend .band--grey;
+
+		}
+
+	}
+
+
+
+	@if ( $feature-a-enable--text-shadow == true ) {
+
+		&--text-shadow {
+
+			text-shadow: 2px 2px calc-rem( $mk-base-spacing-unit ) rgba( #000, .2 ),2px 2px calc-rem( $mk-base-spacing-unit + $mk-base-spacing-unit--small ) rgba( #000, .7 );
+
+		}
+
+	}
+
+}

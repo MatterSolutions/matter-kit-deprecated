@@ -1,0 +1,32 @@
+.select2-selection--multiple {
+
+	cursor: pointer;
+	display: block;
+	user-select: none;
+
+	.select2-selection__rendered {
+
+		display: inline-block;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		vertical-align: middle;
+		white-space: nowrap;
+		
+	}
+}
+
+.select2-search--inline {
+
+	float: left;
+
+	.select2-search__field {
+
+		border: none;
+		font-size: 100%;
+		margin-top: calc-rem( 5px );
+
+		&::-webkit-search-cancel-button {
+			-webkit-appearance: none;
+		}
+	}
+}

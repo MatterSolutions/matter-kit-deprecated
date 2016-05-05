@@ -1,0 +1,27 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file contains the base global element breakpoints dependencies
+*	These will be reused across some optional elements,
+*	with the masthead components being the most notable
+*
+ ---------------------------------------------------------- */
+
+
+ // Header breakpoint, these are most commonly used
+ $mk-element-breakpoint--header: 					desk;
+ $mk-element-breakpoint--primary-navigation: 		$mk-element-breakpoint--header;
+
+
+ // Footer
+ $mk-element-breakpoint--footer: 					$mk-element-breakpoint--header;
+
+
+ // Content
+ $mk-element-breakpoint--content: 					lap;

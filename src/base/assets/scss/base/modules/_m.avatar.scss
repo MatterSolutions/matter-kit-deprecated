@@ -1,0 +1,74 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Avatar styling, different sizes, should only really be applied to square ratio images
+*
+ ---------------------------------------------------------- */
+
+ $mk-avatar-enable--round: 			true;
+ $mk-avatar-enable--large: 			true;
+ $mk-avatar-enable--small: 			true;
+
+
+ // Begin element
+.avatar {
+
+	max-width: calc-rem( $mk-base-spacing-unit--large );
+	width: 100%;
+
+
+	&__body {
+
+		@extend .ratio;
+		@extend .ratio--square;
+		background-position: center center;
+		background-size: cover;
+
+	}
+
+
+	@if ( $mk-avatar-enable--round == true ) {
+
+		&--round {
+
+			.avatar__body {
+
+				border-radius: 50%;
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $mk-avatar-enable--large == true ) {
+
+		&--large {
+
+			max-width: calc-rem( $mk-base-spacing-unit--huge );
+
+		}
+
+	}
+
+
+
+	@if ( $mk-avatar-enable--small == true ) {
+
+		&--small {
+
+			max-width: calc-rem( $mk-base-spacing-unit--small );
+
+		}
+
+	}
+
+}

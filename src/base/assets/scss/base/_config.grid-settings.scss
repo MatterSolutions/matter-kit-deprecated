@@ -1,0 +1,52 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file contains the base global settings for the primary grid
+*
+*	Contents:
+*	- Grid Variables
+*	- Major Breakpoint Variables
+*	- Tweakpoint Variables
+*
+ ---------------------------------------------------------- */
+
+/* ---------------------------------------------
+*	=Grid Variables
+*------------------------------------------------*/
+
+	$mk-grid-columns								: 12;
+	$mk-grid-gutter									: 20px;
+	$mk-grid-page-gutter							: 15px; // Gap between .wrapped elements and the viewport horizontal edges
+	$mk-grid-max-width								: 1170px; // This max width is applied to a .wrap class
+	$mk-grid-generator								: false;
+	
+/* ---------------------------------------------
+*	=Major Breakpoint Variables
+*------------------------------------------------*/
+
+	$mk-grid-breakpoints: (
+
+		palm										: 320px,
+		lap 										: 740px,
+		desk 										: 960px,
+	//	palm-h 										: 480px,
+	//	wide 										: 1170px,
+
+	);
+
+/* ---------------------------------------------
+*	=Tweakpoint Variables
+*------------------------------------------------*/
+
+	$mk-grid-tweakpoints: (
+
+		palm-h 										: 480px,
+		wide 										: 1170px,
+
+	);

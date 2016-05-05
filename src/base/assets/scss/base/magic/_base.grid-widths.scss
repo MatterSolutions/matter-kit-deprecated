@@ -1,0 +1,78 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Generate common grid width sizes
+*	These widths are generated for each major breakpoint
+*
+*	Contents:
+*	- Grid Width Map
+*	- Grid Width Class Generator
+*
+ ---------------------------------------------------------- */
+
+
+/* ---------------------------------------------
+*	=Common Width Sizes
+*------------------------------------------------*/
+
+	$mk-grid-width-sizes: (
+
+		one-half									: 50%,
+		one-third 									: 33.333%,
+		one-quarter 								: 25%,
+		one-fifth 									: 20%,
+		two-thirds 									: 66.6666%,
+		three-quarters 								: 75%,
+		one-whole 									: 100%,
+
+	);
+
+
+
+
+/* ---------------------------------------------
+*	=Grid Width Class Generator
+*------------------------------------------------*/
+
+// Loop through each grid width size
+@each $grid-width-name, $grid-width-size in $mk-grid-width-sizes {
+
+	.#{ $mk-namespace }g-#{ $grid-width-name } {
+
+		width: $grid-width-size; 
+
+	}
+
+}
+
+
+
+// Loop through each breakpoint size
+@each $breakpoint, $breakpoint-size in $mk-grid-breakpoints {
+
+	@each $grid-width-name, $grid-width-size in $mk-grid-width-sizes {
+
+		// Check to see if it's NOT palm (palm doesn't require a media query)
+		@if ( $breakpoint != palm ) {
+
+			@include mk-media-query( $breakpoint ) {
+
+				.#{ $mk-namespace }g-#{ $grid-width-name }\@#{ $breakpoint } {
+
+					width: $grid-width-size;
+
+				}
+
+			}
+
+		}
+
+	}
+
+}

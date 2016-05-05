@@ -1,0 +1,188 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file contains the base functions needed for the
+*	framework to work.
+*
+* 	Dependancies:
+* 	- base.typography
+* 	- base.grid-settings
+*
+*	Contents:
+*	- mk-get-media-query-size
+*	- col
+*	- strip-unit
+*	- calc-rem
+*
+*
+*
+ ---------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------
+*	Retrieve the requested size from the media query breakpoints map
+*------------------------------------------------*/
+
+@function mk-get-media-query-size( $size ) {
+
+	$valid_size: false;
+
+	// Test to see if the requested size is in either the major breakpoints or tweakpoints
+	@if map-has-key( $mk-grid-breakpoints, $size ) {
+
+		$valid_size: map-get( $mk-grid-breakpoints, $size );
+
+	}
+
+	@if map-has-key( $mk-grid-tweakpoints, $size ) {
+
+		$valid_size: map-get( $mk-grid-tweakpoints, $size );
+
+	}
+
+	// Key found, return the key
+	@if ( $valid_size != false ) {
+
+		@return $valid_size;
+
+	}
+
+	@else {
+
+		@return false;
+
+	}
+
+}
+
+
+
+
+/* ---------------------------------------------
+*	Return a ratio size in percentages
+*------------------------------------------------*/
+
+@function ratio( $width, $height ) {
+
+	@if ( $width > $height ) {
+
+		@return ( ( strip-unit( $height ) / strip-unit( $width ) ) * 100% );
+
+	}
+
+	@else {
+
+		@return ( ( strip-unit( $width ) / strip-unit( $height ) ) * 100% );
+
+	}
+
+}
+
+
+
+/* ---------------------------------------------
+*	Include a grid column
+*------------------------------------------------*/
+
+@function col( $span, $columns: $mk-grid-columns ) {
+
+	@return ( ( 100% / $columns ) * $span );
+
+}
+
+
+
+
+/* ---------------------------------------------
+*	Remove the unit from a number
+*------------------------------------------------*/
+
+@function strip-unit( $number ) {
+
+	@if type-of( $number ) == 'number' and not unitless( $number ) {
+		@return $number / ( $number * 0 + 1 );
+	}
+
+	@return $number;
+
+}
+
+
+
+
+/* ---------------------------------------------
+*	Takes a pixel size and changes it to REM
+*------------------------------------------------*/
+
+@function calc-rem( $px-size ) {
+
+	@if $px-size == 0 { @return 0 }
+	@return strip-unit( $px-size ) / strip-unit( $mk-base-font-size ) + 0rem;
+
+}
+
+
+
+/* ---------------------------------------------
+*	Takes a pixel size and changes it to EM
+*------------------------------------------------*/
+
+@function calc-em( $px-size, $context-px-size: 16px ) {
+
+	@if $px-size == 0 { @return 0 }
+	@return strip-unit( $px-size ) / strip-unit( $context-px-size ) + 0em;
+
+}
+
+
+
+/*
+*	Power function
+*	Pulled from: https://unindented.org/articles/trigonometry-in-sass/
+*/
+@function pow($number, $exp) {
+	$value: 1;
+
+	@if $exp > 0 {
+
+		@for $i from 1 through $exp {
+
+			$value: $value * $number;
+
+		}
+
+	}
+
+	@else if $exp < 0 {
+
+		@for $i from 1 through -$exp {
+
+			$value: $value / $number;
+
+		}
+
+	}
+
+	@return $value;
+
+}
+
+
+
+
+/*
+*	Calculate the requested position in the typographic scale
+*/
+@function calc-type-scale( $scale-position, $pixel-size: $mk-base-font-size, $scale: $mk-base-type-scale ) {
+
+	@return ( pow( $scale, $scale-position ) * $pixel-size );
+
+}

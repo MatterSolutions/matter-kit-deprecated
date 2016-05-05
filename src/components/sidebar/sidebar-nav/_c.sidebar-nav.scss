@@ -1,0 +1,176 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Visual Styling for a three-levelled sidebar navigation
+*
+*
+ ---------------------------------------------------------- */
+
+$navigation-sidebar-background-color: 				$mk-color--grey-ui-light;
+$navigation-sidebar-background-color--hover: 		darken( $navigation-sidebar-background-color, 3 );
+$navigation-sidebar-background-color--active: 		darken( $navigation-sidebar-background-color, 6 );
+
+$navigation-sidebar-link-background-color--active:	$mk-color-link;			
+
+$navigation-sidebar-link-color: 					$mk-color-link;
+$navigation-sidebar-link-color--hover: 				$mk-color-link--hover;
+$navigation-sidebar-link-color--active: 			$mk-color-link--hover;
+
+
+$navigation-sidebar-show-levels: 					2; // 2 or 3, show this many levels by default
+
+
+
+.navigation--sidebar {
+
+	> .menu-item,
+	.sub-menu {
+
+		display: none;
+
+	}
+
+	a {
+
+		padding: calc-rem( $mk-navigation-primary-submenu-link-padding-y )  calc-rem( $mk-navigation-primary-submenu-link-padding-x );
+		text-decoration: none;
+
+	}
+
+	.menu-item {
+
+		margin-bottom: 1px;
+
+	}
+
+	
+	// Show top level parent, as well as secondary level
+	> .menu-item.current-menu-ancestor > ul > li > a,
+	> .menu-item.current-menu-ancestor > ul,
+	.current-menu-item .sub-menu,
+	.current-menu-ancestor > .sub-menu,
+	> .menu-item.current-menu-ancestor,
+	> .current-menu-ancestor > a {
+
+		display: block;
+
+	}
+
+
+	/*
+	*	Top level navigation item, this is the label from the top level nav
+	*/
+	> .current-menu-ancestor > a,
+	> .current-menu-item > a {
+
+		// Top level element
+		@extend h3;
+		@extend .display-heading !optional;
+		margin-bottom: calc-rem( $mk-base-spacing-unit--small );
+
+	}
+
+
+	/*
+	*	 Set the background colours on sidebar child elements
+	*/
+	> .current-menu-ancestor > ul > li {
+
+		@extend .u-text--tiny;
+		background-color: $navigation-sidebar-background-color;
+		color: $navigation-sidebar-link-color;
+
+		&:hover {
+
+			background-color: $navigation-sidebar-background-color--hover;
+			color: $navigation-sidebar-link-color--hover;
+
+		}
+
+		> a {
+
+			padding-right: calc-rem( $mk-navigation-primary-submenu-link-padding-x * 2 );
+			position: relative;
+
+			&:after {
+
+				@extend .arrow;
+				@extend .arrow--right;
+				@extend .u-vertical-center;
+				content: "";
+				position: absolute;
+				right: calc-rem( $mk-navigation-primary-submenu-link-padding-x );
+
+			}
+
+		}
+
+	}
+
+
+	/*
+	*	Active elements (current page, ANCESTOR of current page)
+	*/
+	> .current-menu-ancestor > ul > .current-menu-ancestor,
+	> .current-menu-ancestor > ul > .current-menu-item {
+
+		background-color: $navigation-sidebar-background-color--active !important;
+		color: $navigation-sidebar-link-color--active !important;
+
+		&:hover {
+
+			background-color: $navigation-sidebar-background-color--active !important;
+			color: $navigation-sidebar-link-color--active !important;
+
+		}
+
+		&.menu-item-has-children > a:after {
+
+			@extend .arrow--down;
+
+		}
+
+		.sub-menu {
+
+			padding-bottom: calc-rem( $mk-navigation-primary-submenu-link-padding-y );
+
+			li {
+
+				margin-bottom: 1px;
+
+				a {
+
+					padding-top: calc-rem( $mk-base-spacing-unit--tiny );
+					padding-bottom: calc-rem( $mk-base-spacing-unit--tiny );
+					line-height: calc-rem( $mk-base-spacing-unit--small );
+					padding-left: calc-rem( $mk-navigation-primary-submenu-link-padding-x * 2 );
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+	/*
+	*	Current item, regardless of where it is located in the tree
+	*/
+	.current-menu-item {
+
+		> a {
+
+			font-weight: $mk-type-weight-primary--bold;
+
+		}
+
+	}
+
+}

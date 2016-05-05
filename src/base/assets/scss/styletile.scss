@@ -1,0 +1,268 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*   Styletile styles
+*
+ ---------------------------------------------------------- */
+
+// Base setup, vars and styleguide
+@import 'base/config.setup';
+
+
+// Styletile vars
+$styletile-circle-size: 					160px;
+
+$styletile-text-color: 						#b73969;
+$styletile-border: 							1px dashed $styletile-text-color;
+
+
+$swatchColours: ( 
+
+	1: (
+		'standard': $mk-color--primary,
+	), 
+	2: (
+		'standard': $mk-color--secondary,
+	), 
+	3: (
+		'standard': $mk-color--tertiary,
+	),
+	4: (
+		'standard': $mk-color--quaternary,
+	),
+	5: (
+		'standard': $mk-color--senary,
+	)
+
+);
+
+@each $item, $color in $swatchColours {
+	
+	.swatch--#{ $item } {
+
+		background-color: map-get( $color, 'standard' );
+
+	}
+
+}
+
+
+
+
+
+.styletile-heading,
+.styletile-info { 
+
+	color: $styletile-text-color; 
+
+}
+
+.styletile-heading { 
+
+	font-size: 20px; 
+	margin-top: 0; 
+	margin-bottom: 10px; 
+	line-height: 1.2; 
+
+}
+
+
+
+.styletile-info { 
+
+	font-size: 13px; 
+	line-height: 1.3; 
+	margin-bottom: 0; 
+
+}
+
+
+
+.styletile-hook--top {
+
+	position: relative;
+
+	@include mk-media-query( wide ) {
+
+		padding-right: ( $styletile-circle-size + $mk-base-spacing-unit + $mk-base-spacing-unit--large );
+		min-height: ( $styletile-circle-size + $mk-base-spacing-unit );
+
+
+		.styletile-circle {
+
+			position: absolute;
+			right: $mk-base-spacing-unit--small;
+			top: $mk-base-spacing-unit--small;
+
+			&__body {
+
+				&:after {
+	
+					content: "";
+					position: absolute;
+					top: -( $mk-base-spacing-unit--small + ( $mk-base-spacing-unit--small / 2.5 ) );
+					right: ( $styletile-circle-size + ( $styletile-circle-size / 2.5 ) - ( $mk-base-spacing-unit--small * 1.6 ) );
+					transform: rotate( -45deg );
+					transform-origin: center;
+					display: block;
+					width: $mk-base-spacing-unit--small;
+					height: $mk-base-spacing-unit--small;
+					border-top: $styletile-border;
+					border-left: $styletile-border;
+
+				}
+
+			}
+
+
+			&__indicator {
+
+				height: ( $styletile-circle-size / 3 );
+				overflow: hidden;
+				position: absolute;
+				right: ( $styletile-circle-size / 2 );
+				top: ( $styletile-circle-size / 6 );
+				width: ( $styletile-circle-size * 1 );
+				z-index: 0;
+				transform-origin: center;
+				transform: rotate( 60deg );
+
+
+				&:before {
+
+					border: $styletile-border;
+					border-radius: 100%;
+					content: "";
+					display: inline-block;
+					height: ( $styletile-circle-size * 1.25 );
+					width: ( $styletile-circle-size * 1.25 );
+
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+.styletile-hook--bottom {
+
+	@include mk-media-query( wide ) {
+
+		padding-bottom: ( $styletile-circle-size / 3 );
+		padding-right: ( $styletile-circle-size + $mk-base-spacing-unit + $mk-base-spacing-unit--large );
+		min-height: ( $styletile-circle-size + $mk-base-spacing-unit );
+
+		.styletile-circle {
+
+			position: absolute;
+			right: $mk-base-spacing-unit;
+			bottom: -( $styletile-circle-size / 3 );
+
+		}
+
+	}
+
+}
+
+
+
+.styletile-circle { 
+
+	display: inline-block;
+	z-index: 10;
+
+	&__body {
+
+		background-color: #fff; 
+		border-radius: 50%; 
+		border: 1px dashed $styletile-text-color; 
+		height: $styletile-circle-size; 
+		margin-bottom: 20px; 
+		margin-top: 20px; 
+		position: relative; 
+		text-align: center; 
+		width: $styletile-circle-size; 
+		z-index: 10; 
+
+	}
+
+
+	&__content {
+
+		position: absolute; 
+		width: 100%; 
+		top: 50%; 
+		left: 50%; 
+		padding: 20px; 
+		transform: translate(-50%, -50%);
+
+	}
+
+}
+
+
+
+
+
+
+.styletile-icon-list {
+
+	> li {
+
+		margin-bottom: $mk-base-spacing-unit--tiny;
+
+	}
+
+}
+
+
+
+
+
+
+
+/*
+*	Styletile colour listing 
+*/
+
+.styletile-colours {
+
+	margin-left: -( $mk-base-spacing-unit--small ) !important;
+
+	> li {
+
+		width: 20%;
+		padding-left: $mk-base-spacing-unit--small;
+
+	}
+
+}
+
+
+
+.styletile-headings {
+
+	@include mk-media-query( wide ) {
+
+		width: 68% !important;
+
+	}
+
+	p {
+
+		max-width: 500px;
+
+	}
+
+}

@@ -1,0 +1,113 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Display Heading
+*	- Used for punchy headlines
+*	- These are not designed to be used in standard page content
+*
+ ---------------------------------------------------------- */
+
+
+// These should be set in EM so they will always be relative to the base font size, even if that changes
+$mk-heading-display-size--alpha:			calc-type-scale( 3 );
+$mk-heading-display-size--beta:				calc-type-scale( 5 );
+$mk-heading-display-size--gamma:			calc-type-scale( 7 );
+$mk-heading-display-size--delta:			calc-type-scale( 10 );
+
+$mk-heading-display-size--small:			calc-type-scale( 2 );
+
+
+// Styling
+$mk-heading-display-text-transform: 		uppercase;
+
+
+
+
+
+/*
+*	Begin component output
+*/
+.#{$mk-namespace}display-heading {
+
+	font-size: calc-rem( $mk-heading-display-size--alpha * .8 );
+	text-transform: $mk-heading-display-text-transform;
+	word-break: break-all; 
+
+	@include mk-media-query( lap ) {
+
+		font-size: calc-rem( $mk-heading-display-size--alpha );
+
+	}
+
+
+
+	/*
+	*	Medium Size
+	*/
+	&--beta {
+
+		font-size: calc-rem( $mk-heading-display-size--beta * .8 );
+
+		@include mk-media-query( lap ) {
+
+			font-size: calc-rem( $mk-heading-display-size--beta );
+
+		}
+
+	}
+
+
+
+
+	/*
+	*	Largest Size, intended for use on <h1>, used sparingly
+	*/
+	&--gamma {
+
+		font-size: calc-rem( $mk-heading-display-size--gamma * .8 );
+
+		@include mk-media-query( lap ) {
+
+			font-size: calc-rem( $mk-heading-display-size--gamma );
+
+		}
+
+	}
+
+
+
+	/*
+	*	Largest Size, intended for use on <h1>, used sparingly
+	*/
+	&--delta {
+
+		font-size: calc-rem( $mk-heading-display-size--delta * .8 );
+
+		@include mk-media-query( lap ) {
+
+			font-size: calc-rem( $mk-heading-display-size--delta );
+
+		}
+
+	}
+
+
+	&--small {
+
+		font-size: calc-rem( $mk-heading-display-size--small * .8 );
+
+		@include mk-media-query( lap ) {
+
+			font-size: calc-rem( $mk-heading-display-size--small );
+
+		}
+
+	}
+
+}

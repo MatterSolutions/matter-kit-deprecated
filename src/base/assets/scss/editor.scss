@@ -1,0 +1,26 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*   Editor css file
+*	This file is loaded for the WYSIWYG fields in the WordPress admin
+*	and allows users to see site-specific styling
+*
+ ---------------------------------------------------------- */
+
+// Base setup, vars and styleguide
+@import 'base/config.setup';
+
+// Generic Modules
+@import 'base/modules/m.list';
+
+// Inner content modules
+@import 'base/modules/m.button';
+
+// Import helpers
+@import 'base/magic/base.helpers';

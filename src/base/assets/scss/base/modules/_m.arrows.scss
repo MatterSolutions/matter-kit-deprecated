@@ -1,0 +1,151 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Arrows
+*	Arrows and chevrons used to denote directive actions
+*
+ ---------------------------------------------------------- */
+
+$mk-arrow-size: 						.3em;
+$mk-arrow-color: 						$mk-color-link;
+$mk-arrow-enable: 						true;
+
+$mk-chevron-size:						.5em;
+$mk-chevron-thickness: 					2px;
+$mk-chevron-color: 						$mk-arrow-color;
+$mk-chevron-enable: 					false;
+
+
+
+/*
+*	Begin element output
+*/
+
+
+@if ( $mk-arrow-enable == true ) {
+
+	/*
+	*	Arrows
+	*/
+	.arrow {
+
+		border-style: solid;
+		display: inline-block;
+		height: 0;
+		width: 0;
+
+
+		&--right {
+
+			border-color: transparent transparent transparent $mk-arrow-color;
+			border-width: $mk-arrow-size  0  $mk-arrow-size  $mk-arrow-size;
+
+			// Add spacing if used in a button
+			.btn & {
+
+				margin-left: calc-em( $mk-base-spacing-unit--small );
+
+			}
+
+		}
+
+
+		&--up {
+
+			border-color: transparent transparent $mk-arrow-color transparent;
+			border-width: 0 $mk-arrow-size  $mk-arrow-size  $mk-arrow-size;
+
+			// Add spacing if used in a button
+			.btn & {
+
+				margin-left: calc-em( $mk-base-spacing-unit--small );
+
+			}
+
+		}
+
+
+		&--down {
+
+			border-color: $mk-arrow-color transparent transparent transparent;
+			border-width: $mk-arrow-size  $mk-arrow-size  0  $mk-arrow-size;
+
+			// Add spacing if used in a button
+			.btn & {
+
+				margin-left: calc-em( $mk-base-spacing-unit--small );
+
+			}
+
+		}
+
+
+		&--left {
+
+			border-color: transparent $mk-color-link transparent transparent;
+			border-width: $mk-arrow-size  $mk-arrow-size  $mk-arrow-size  0;
+
+			// Add spacing if used in a button
+			.btn & {
+
+				margin-right: calc-em( $mk-base-spacing-unit--small );
+
+			}
+
+		}
+
+
+		&--white {
+
+			border-color: transparent transparent transparent $mk-color--white !important;
+
+		}
+
+	}
+
+}
+
+
+
+
+@if ( $mk-chevron-enable == true ) {
+
+	/*
+	*	Chevrons
+	*/
+
+	.chevron {
+
+		border-right: $mk-chevron-thickness solid $mk-chevron-color;
+		border-top: $mk-chevron-thickness solid $mk-chevron-color;
+		display: inline-block;
+		height: $mk-chevron-size;
+		width: $mk-chevron-size;
+
+		&--right {
+
+			transform: rotate( 45deg );
+
+		}
+
+		&--left {
+
+			transform: rotate( 135deg );
+
+		}
+
+		&--white {
+
+			border-color: $mk-color--white !important;
+
+		}
+
+	}
+
+}

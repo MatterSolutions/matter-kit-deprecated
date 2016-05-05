@@ -1,0 +1,124 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file contains the base mixins needed for the
+*	framework to work.
+*
+*	Dependancies:
+*	- base.grid-setttings
+*
+*	Contents:
+*	- mk-grid-column-class-loop
+*	- mk-media-query
+*
+ ---------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------
+*	Mixin to loop through the grid columns and generate class names
+*------------------------------------------------*/
+
+@mixin mk-grid-column-class-loop( $breakpoint ) {
+
+	// Loop through each grid column
+	@for $i from 1 through $mk-grid-columns {
+
+		.#{ $mk-namespace }col-#{ $i }\@#{ $breakpoint } {
+
+			width: col( $i );
+
+		}
+
+	}
+
+}
+
+
+
+
+/* ---------------------------------------------
+*	Include a media query
+*------------------------------------------------*/
+
+@mixin mk-media-query( $breakpoint-from: false, $breakpoint-until: false ) {
+
+	$bp_from: '';
+	$bp_until: '';
+
+	$query_from: '';
+	$query_until: '';
+	$query_join: '';
+
+
+	// Check to see if FROM is a number, or a defined breakpoint
+	@if type-of( $breakpoint-from ) == 'number' and not unitless( $breakpoint-from ) {
+
+		$bp_from: $breakpoint-from;
+
+	}
+
+	@else {
+
+		$bp_from: mk-get-media-query-size( $breakpoint-from );
+
+	}
+
+
+
+	// Check to see if UNTIL is a number, or a defined breakpoint
+	@if type-of( $breakpoint-until ) == 'number' and not unitless( $breakpoint-until ) {
+
+		$bp_until: $breakpoint-until;
+
+	}
+
+	@else {
+
+		$bp_until: mk-get-media-query-size( $breakpoint-until );
+
+	}
+
+
+
+	// Set from query if not false
+	@if ( $bp_from != false ) {
+
+		$query_from: "( min-width: #{ $bp_from } )";
+
+	}
+
+
+	// Set until query if not false
+	@if ( $bp_until != false ) {
+
+		$bp_until: ( $bp_until - 1 );
+		$query_until: "( max-width: #{ $bp_until } )";
+
+	}
+
+
+	// Set join if until and from are both not false
+	@if ( $bp_from != false  and  $bp_until != false ) {
+
+		$query_join: " and ";
+
+	}
+
+
+	// Output query
+	$query: #{ $query_from } #{ $query_join } #{ $query_until };
+	@media #{ $query } {
+
+		@content;
+
+	}
+
+}

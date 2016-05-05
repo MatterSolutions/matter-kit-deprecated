@@ -1,0 +1,238 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Box
+*	Set up a box for using throughout the project, including in any landing pages
+*
+*	Dependencies
+*	- band
+* 	
+ ---------------------------------------------------------- */
+
+
+$mk-box-enable--large: 				false !default;
+
+$mk-box-enable--primary: 			true !default;
+$mk-box-enable--secondary: 			false !default;
+$mk-box-enable--tertiary: 			false !default;
+$mk-box-enable--quaternary: 		false !default;
+$mk-box-enable--senary: 			false !default;
+
+$mk-box-enable--white: 				true !default;
+$mk-box-enable--semi-transparent:	false !default;
+$mk-box-enable--outlined:			false !default;
+
+
+
+
+// Begin box element
+.box {
+
+	@extend .u-negate-btm-margin; // Remove bottom margins on last child elements
+
+	// remove margin on last child (p etc)
+	&:last-child {
+
+		margin-bottom: 0;
+
+	}
+
+
+	&__content {
+
+		padding: calc-rem( $mk-base-spacing-unit );
+
+	}
+
+
+	&__title {
+
+		padding: calc-rem( $mk-base-spacing-unit--small )  calc-rem( $mk-base-spacing-unit );
+
+
+		h2,
+		h3,
+		h4 {
+
+			display: inline-block;
+			vertical-align: middle;
+
+		}
+
+		.badge {
+
+			margin-left: calc-rem( $mk-base-spacing-unit );
+
+		}
+
+	}
+
+
+	@if ( $mk-box-enable--large == true ) {
+
+		&--large {
+
+			padding: calc-rem( $mk-base-spacing-unit--large ); 
+
+		}
+
+	}
+
+
+	@if ( $mk-box-enable--primary == true ) {
+
+		&--primary {
+
+			background-color: $mk-color--primary;
+
+			@if ( lightness( $mk-color--primary ) < 60 ) {
+
+				@extend .band--hero;
+
+			}
+
+		}
+
+	}
+
+
+	@if ( $mk-box-enable--secondary == true ) {
+
+		&--secondary {
+
+			background-color: $mk-color--secondary;
+
+			@if ( lightness( $mk-color--secondary ) < 60 ) {
+
+				@extend .band--hero;
+
+			}
+
+		}
+
+	}
+
+
+	@if ( $mk-box-enable--tertiary == true ) {
+
+		&--tertiary {
+
+			background-color: $mk-color--tertiary;
+
+			@if ( lightness( $mk-color--tertiary ) < 60 ) {
+
+				@extend .band--hero;
+
+			}
+
+		}
+
+	}
+
+
+	@if ( $mk-box-enable--quaternary == true ) {
+
+		&--quarternary {
+
+			background-color: $mk-color--quaternary;
+
+			@if ( lightness( $mk-color--quaternary ) < 60 ) {
+
+				@extend .band--hero;
+
+			}
+
+		}
+
+	}
+
+
+	@if ( $mk-box-enable--senary == true ) {
+
+		&--senary {
+
+			background-color: $mk-color--senary;
+
+			@if ( lightness( $mk-color--senary ) < 60 ) {
+
+				@extend .band--hero;
+
+			}
+
+		}
+
+	}
+
+
+	@if ( $mk-box-enable--white == true ) {
+
+		&--white {
+
+			background-color: $mk-color--white;
+
+			@if ( lightness( $mk-color-base-text ) < 60 ) {
+
+				color: $mk-color-base-text;
+
+				label {
+
+					color: inherit;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $mk-box-enable--semi-transparent == true ) {
+
+		&--semi-transparent {
+
+			background-color: rgba( $mk-color--white, .85 );
+
+			@if ( lightness( $mk-color-base-text ) < 60 ) {
+
+				color: $mk-color-base-text;
+
+				label {
+
+					color: inherit;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $mk-box-enable--outlined == true ) {
+
+		&--outlined {
+
+			border: 1px solid $mk-color--grey-ui;
+
+			> .box__title + .box__content,
+			> .box__content + .box__content {
+
+				border-top: 1px solid $mk-color--grey-ui;
+
+			}
+			
+		}
+
+	}
+
+}

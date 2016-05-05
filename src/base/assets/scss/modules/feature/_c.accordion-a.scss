@@ -1,0 +1,124 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Footer A
+*	Footer element containing a menu and brand
+*
+ ---------------------------------------------------------- */
+
+$mk-accordion-a-padding-x: 						0;
+$mk-accordion-a-padding-y: 						$mk-base-spacing-unit--small;
+$mk-accordion-a-background-color: 				transparent;
+$mk-accordion-a-background-color--heading: 		transparent; // transparent, primary, secondary
+
+
+/*
+*	Begin styles
+*/
+
+.accordion-a {
+
+	@if ( $mk-accordion-a-background-color != transparent ) {
+
+		background-color: $mk-accordion-a-background-color;
+
+	}
+
+	&__heading {
+
+		@if ( $mk-accordion-a-background-color--heading != $mk-accordion-a-background-color ) {
+
+			@if ( $mk-accordion-a-background-color--heading  !=  transparent ) {
+
+				@extend .band--#{ $mk-accordion-a-background-color--heading } !optional;
+
+			}
+
+		}
+
+		cursor: pointer;
+		padding: calc-rem( $mk-accordion-a-padding-y )  calc-rem( $mk-base-spacing-unit--large + $mk-accordion-a-padding-x )  calc-rem( $mk-accordion-a-padding-y )  calc-rem( $mk-accordion-a-padding-x );
+		position: relative;
+
+		&:after {
+
+			@extend .arrow;
+			@extend .arrow--down;
+			@extend .u-vertical-center;
+			content: "";
+			right: calc-rem( $mk-accordion-a-padding-x );
+
+		}
+
+	}
+
+		&__content {
+
+			@if ( $mk-accordion-a-background-color--heading != $mk-accordion-a-background-color ) {
+
+				margin-top: calc-rem( $mk-accordion-a-padding-y );
+
+			}
+
+			display: none;
+			padding: 0  calc-rem( $mk-accordion-a-padding-x )  calc-rem( $mk-accordion-a-padding-y )   calc-rem( $mk-accordion-a-padding-x );
+
+		}
+
+
+
+	&.is-open {
+
+		.accordion-a__heading {
+
+			&:after {
+
+				@extend .arrow--up;
+
+			}
+
+		}
+
+		.accordion-a__content {
+
+			display: block;
+
+		}
+
+	}
+
+}
+
+
+/*
+*	Label for the accordion a
+*/
+.listing-toggle--accordion {
+
+	text-align: right;
+	margin-bottom: calc-rem( $mk-base-font-size--small );
+
+	.listing-toggle__label:before {
+
+		content: "Expand All";
+
+	}
+
+
+	&.is-open {
+
+		.listing-toggle__label:before {
+
+			content: "Collapse All";
+
+		}
+
+	}
+
+}

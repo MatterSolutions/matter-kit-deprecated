@@ -1,0 +1,30 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	HR - Horizontal Rule
+*	Standard horizontal rule for separating content
+*
+ ---------------------------------------------------------- */
+
+hr {
+
+	border: none;
+	border-bottom: 1px solid $mk-color--grey-ui;
+	margin-bottom: calc-em( $mk-base-spacing-unit );
+	margin-top: calc-em( $mk-base-spacing-unit );
+	outline: none;
+
+	@include mk-media-query( desk ) {
+
+		margin-bottom: calc-em( $mk-base-spacing-unit--large );
+		margin-top: calc-em( $mk-base-spacing-unit--large );
+
+	}
+
+}

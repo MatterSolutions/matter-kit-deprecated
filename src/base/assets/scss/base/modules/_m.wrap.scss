@@ -1,0 +1,67 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Wraps
+*	Used to apply max-widths to content so it remains within an optimal line length
+*
+ ---------------------------------------------------------- */
+
+	// Vars
+	$mk-enable-wrap--petite			: true !default;
+	$mk-enable-wrap--wide			: true !default; // Full width wrapper
+	$mk-enable-wrap--extend			: true !default; // Full width wrapper
+
+	$mk-wrap-max-size				: $mk-grid-max-width !default;
+	$mk-wrap-max-size--petite		: map-get( $mk-grid-breakpoints, 'lap' ) !default;
+	$mk-wrap-max-size--extend 		: ( ( $mk-grid-max-width ) + ( ( $mk-grid-max-width / $mk-grid-columns ) ) );
+
+
+
+/*
+*	Base wrap element
+*/
+.#{$mk-namespace}wrap,
+%#{$mk-namespace}wrap {
+
+	margin-left: auto;
+	margin-right: auto;
+	max-width: $mk-wrap-max-size;
+	padding-left: $mk-grid-page-gutter;
+	padding-right: $mk-grid-page-gutter;
+
+
+
+	/*
+	*	Smaller wrap
+	*/
+	@if ( $mk-enable-wrap--petite == true ) {
+
+		&--petite {
+
+			max-width: $mk-wrap-max-size--petite;
+
+		}
+
+	}
+
+
+	/*
+	*	Wide wrap
+	*/
+	@if ( $mk-enable-wrap--petite == true ) {
+
+		&--wide {
+
+			max-width: none;
+
+		}
+
+	}
+
+}

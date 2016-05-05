@@ -1,0 +1,79 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Badge
+*	Small badges to denote tiny information
+*
+*	Dependencies
+*	- band
+* 	
+ ---------------------------------------------------------- */
+
+.badge {
+
+	background-color: $mk-color--primary;
+	color: $mk-color--white !important;
+	display: inline-block;
+	font-size: calc-rem( 13px );
+	font-weight: $mk-type-weight-primary--bold;
+	line-height: 1.1;
+	padding: calc-rem( ( $mk-base-spacing-unit--tiny ) )  calc-rem( $mk-base-spacing-unit--tiny + $mk-base-spacing-unit--nano );
+	text-align: center;
+
+
+	&--positive {
+
+		background-color: $mk-color--positive;
+
+	}
+
+
+	&--negative {
+
+		background-color: $mk-color--negative;
+
+	}
+
+
+	&--neutral {
+
+		background-color: $mk-color--secondary;
+
+	}
+
+
+	&--dark {
+
+		background-color: $mk-color--quaternary;
+
+	}
+
+
+	&--fill {
+
+		width: 100%;
+
+	}
+
+}
+
+
+
+a.badge {
+
+	cursor: pointer;
+
+	&:hover {
+
+		background-color: darken( $mk-color--primary, 5 );
+		text-decoration: none !important;
+
+	}
+
+}

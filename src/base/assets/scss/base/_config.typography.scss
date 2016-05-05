@@ -1,0 +1,132 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file contains the base global typography settings
+*
+*	Dependancies:
+*	- None
+*
+*	Contents:
+*	- Base Type Variables
+*	- Primary Typeface Variables
+*	- Secondary Typeface Variables
+*	- Misc Font Families
+*	- Base Spacing Unit Sizes
+*
+ ---------------------------------------------------------- */
+
+
+
+
+/* ---------------------------------------------
+*	=Base Type Variables
+*------------------------------------------------*/
+
+	// Different type ratios
+	$mk-type-base-ratio: 						1.2;
+	$mk-type-base-ratio--golden:				1.618;
+
+	$mk-base-type-scale: 						$mk-type-base-ratio;
+
+
+	// Line length (readability)
+	$mk-base-line-length: 						55rem; // This should always be set in REM
+
+
+	// Sizing
+	$mk-base-font-size: 						20px !default;
+	$mk-base-line-height: 						( $mk-base-font-size * 1.6 ) !default; // This is used to generate larger and smaller proportionate spacings
+
+	$mk-base-font-size--small: 					calc-type-scale( -1 ) !default;
+	$mk-base-font-size--tiny: 					calc-type-scale( -2 ) !default;
+	$mk-base-font-size--large:					calc-type-scale( 1 ) !default;
+
+
+/* ---------------------------------------------
+*	=Primary Typeface Variables
+*------------------------------------------------*/
+
+	// Fonts
+	$mk-type-face-primary: 						'proxima-nova', Arial, sans-serif;
+	$mk-type-face-primary--thin:	 			$mk-type-face-primary;
+	$mk-type-face-primary--light:	 			$mk-type-face-primary;
+	$mk-type-face-primary--semi-bold:	 		$mk-type-face-primary;
+	$mk-type-face-primary--bold:	 			$mk-type-face-primary;
+	$mk-type-face-primary--black:	 			$mk-type-face-primary;
+
+
+	// Weights
+	$mk-type-weight-primary: 					400 !default;
+	$mk-type-weight-primary--thin:				100 !default;
+	$mk-type-weight-primary--light:				300 !default;
+	$mk-type-weight-primary--semi-bold:			600 !default;
+	$mk-type-weight-primary--bold:				700 !default;
+	$mk-type-weight-primary--black:				900 !default;
+
+
+	// Font style
+	$mk-type-style-primary:	 					normal !default; // Usually normal, could be italic
+
+
+
+
+/* ---------------------------------------------
+*	=Secondary Typeface Variables
+*------------------------------------------------*/
+
+	// Fonts
+	$mk-type-face-secondary: 					'';
+	$mk-type-face-secondary--thin:	 			$mk-type-face-secondary;
+	$mk-type-face-secondary--light:	 			$mk-type-face-secondary;
+	$mk-type-face-secondary--semi-bold:	 		$mk-type-face-secondary;
+	$mk-type-face-secondary--bold:	 			$mk-type-face-secondary;
+	$mk-type-face-secondary--black:	 			$mk-type-face-secondary;
+
+
+	// Weights
+	$mk-type-weight-secondary: 					400 !default;
+	$mk-type-weight-secondary--thin:			100 !default;
+	$mk-type-weight-secondary--light:			300 !default;
+	$mk-type-weight-secondary--semi-bold:		500 !default;
+	$mk-type-weight-secondary--bold:			600 !default;
+	$mk-type-weight-secondary--black:			900 !default;
+
+
+	// Font style
+	$mk-type-style-secondary:	 				normal !default; // Usually normal, could be italic
+
+
+
+
+/* ---------------------------------------------
+*	=Base Font Settings
+*------------------------------------------------*/
+
+	$mk-base-font-family		: $mk-type-face-primary;
+	$mk-base-font-weight		: $mk-type-weight-primary;
+
+	$mk-font-family--cursive	: cursive !default;
+	$mk-font-family--mono		: 'Courier New', Courier, monospace !default;
+
+
+
+
+/* ---------------------------------------------
+*	=Spacing Unit Sizes
+*
+*	These are used to create spacing based on the size of the type
+*	This creates a more cohesive and proportionate implementation
+*------------------------------------------------*/
+
+	$mk-base-spacing-unit				: $mk-base-line-height;
+	$mk-base-spacing-unit--nano			: round( $mk-base-spacing-unit / 8 );
+	$mk-base-spacing-unit--tiny			: round( $mk-base-spacing-unit / 4 );
+	$mk-base-spacing-unit--small		: round( $mk-base-spacing-unit / 2 );
+	$mk-base-spacing-unit--large		: round( $mk-base-spacing-unit * 2 );
+	$mk-base-spacing-unit--huge			: round( $mk-base-spacing-unit * 4 );

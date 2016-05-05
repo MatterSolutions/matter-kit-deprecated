@@ -1,0 +1,46 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Shared
+*	Set consistent spacing on elements to keep the vertical rythm consistent.
+*
+ ---------------------------------------------------------- */
+
+
+
+
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+table,
+fieldset, figure,
+pre,
+%margin-bottom {
+	margin-bottom: calc-rem( $mk-base-spacing-unit );
+
+	.u-negate-btm-margin & {
+
+		&:last-child:not( .listing ) {
+
+			margin-bottom: 0;
+
+		}
+
+	}
+}
+
+
+
+
+
+ul, ol, dd,
+%margin-left {
+	margin-left: calc-rem( $mk-base-spacing-unit );
+}

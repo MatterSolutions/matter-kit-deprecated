@@ -1,0 +1,81 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Blockquote styling, larger than standard text, with a big decorative quotemark above
+*
+* 	Dependancies:
+* 	- base.typography
+* 	- base.color
+ ---------------------------------------------------------- */
+
+$blockquote-font-weight: 				$mk-type-weight-primary;
+$blockquote-max-width: 					none;
+$blockquote-opacity: 					.2;
+
+
+$blockquote-decoration-size: 			$mk-base-spacing-unit--large + $mk-base-spacing-unit--small;
+$blockquote-decoration-margin-btm: 		( $mk-base-spacing-unit );
+
+
+
+
+.blockquote-a {
+
+	@extend .u-text--large;
+	font-weight: $blockquote-font-weight;
+	margin: calc-rem( $mk-base-spacing-unit )  auto;
+	max-width: $blockquote-max-width;
+	padding-top: calc-rem( $blockquote-decoration-size + $blockquote-decoration-margin-btm );
+	position: relative;
+
+
+	p {
+
+		text-indent: 0;
+
+	}
+
+
+	&:before {
+
+		background-image: url( '../img/icon-blockquote-quote.png' );
+		background-position: bottom left;
+		background-repeat: no-repeat;
+		background-size: contain;
+		color: $mk-color-quote-decoration;
+		content: "";
+		display: block;
+		height: calc-rem( $blockquote-decoration-size );
+		left: 0;
+		opacity: $blockquote-opacity;
+		position: absolute;
+		top: 0;
+		width: calc-rem( $blockquote-decoration-size );
+		z-index: -1;
+
+	}
+
+
+	&--quote-marks {
+
+		p:first-of-type:before {
+
+			content: open-quote;
+
+		}
+
+		p:last-of-type:before {
+
+			content: close-quote;
+
+		}
+
+	}
+
+}

@@ -1,0 +1,14 @@
+.map {
+
+
+	/*
+	*	Map body contains the actual map
+	*/
+
+	&__body {
+
+		min-height: calc-rem( $mk-base-spacing-unit * 16 );
+
+	}
+
+}

@@ -1,0 +1,71 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Page
+*	Standard base typography styling and overflow for the HTML elements
+*	Also has a transition on the body element for interactions with body
+*
+ ---------------------------------------------------------- */
+
+html {
+
+	background-color: $mk-color-base-background;
+	color: $mk-color-base-text;
+	font-family: $mk-base-font-family;
+	font-weight: $mk-base-font-weight;
+	min-height: 100%;
+	overflow-y: scroll;
+	overflow-x: hidden;
+	-webkit-text-size-adjust: 100%;
+		-ms-text-size-adjust: 100%;
+	-moz-osx-font-smoothing: grayscale;
+	 -webkit-font-smoothing: antialiased;
+
+
+	// Reduce the text size on mobile, but set to a min of 13px
+	@if ( ( $mk-base-font-size * .8 ) < 13 ) {
+
+		font-size: calc-em( 13px );
+		line-height: calc-em( $mk-base-line-height * .9 );
+
+	}
+
+	@else {
+
+		font-size: calc-em( $mk-base-font-size * .8 );
+		line-height: calc-em( $mk-base-line-height * .9, $mk-base-font-size * .8 );
+
+	}
+
+
+	@include mk-media-query( lap ) {
+
+		font-size: calc-em( ( $mk-base-font-size * .9 ) );
+		line-height: calc-em( ( $mk-base-line-height * .9, $mk-base-font-size * .9 ) );
+
+	}
+
+
+	@include mk-media-query( desk ) {
+
+		font-size: calc-em( $mk-base-font-size );
+		line-height: calc-em( $mk-base-line-height, $mk-base-font-size );
+
+	}
+
+
+}
+
+
+
+body {
+
+	transition: transform .2s ease;
+
+}

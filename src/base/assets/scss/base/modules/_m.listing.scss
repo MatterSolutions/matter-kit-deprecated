@@ -1,0 +1,283 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Listing
+*	Designed to be used in conjunction with the layout block
+*	This adds spacing below the elements to separate listings
+*
+*	Dependencies
+*	- layout
+* 	
+ ---------------------------------------------------------- */
+
+
+// Predefine the variables below in order to alter and enable specific features.
+$mk-listing-namespace				: $mk-namespace !default;
+
+$mk-listing-gutter					: $mk-layout-gutter !default;
+$mk-listing-gutter--tiny			: $mk-layout-gutter--tiny !default;
+$mk-listing-gutter--small			: $mk-layout-gutter--small !default;
+$mk-listing-gutter--large			: $mk-layout-gutter--large !default;
+$mk-listing-gutter--huge			: $mk-layout-gutter--huge !default;
+
+$mk-enable-listing--tiny			: $mk-enable-layout--tiny !default;
+$mk-enable-listing--small			: $mk-enable-layout--small !default;
+$mk-enable-listing--large			: $mk-enable-layout--large !default;
+$mk-enable-listing--huge			: $mk-enable-layout--huge !default;
+$mk-enable-listing--flush			: $mk-enable-layout--flush !default;
+
+
+
+$mk-enable-listing--keylines-between	: true !default;
+$mk-enable-listing--keylines			: true !default;
+$mk-enable-listing--outlined			: false !default;
+$mk-enable-listing--line-length 		: true !default;
+
+
+$mk-listing-border-size: 			1px;
+$mk-listing-border-color: 			$mk-color--grey-ui;
+
+
+
+
+.listing {
+
+	@extend .layout;
+	margin-bottom: -( calc-rem( $mk-listing-gutter ) );
+
+	&__item {
+
+		@extend .layout__item;
+		margin-bottom: calc-rem( $mk-listing-gutter );
+
+	}
+
+}
+
+
+
+
+@if ( $mk-enable-listing--tiny == true ) {
+
+	/**
+	 * Layouts with tiny gutters.
+	 */
+
+	.#{$mk-listing-namespace}listing--tiny,
+	%#{$mk-listing-namespace}listing--tiny {
+
+		margin-bottom: -( calc-rem( $mk-listing-gutter--tiny ) );
+
+		> .#{$mk-listing-namespace}listing__item,
+		> %#{$mk-listing-namespace}listing__item {
+
+			margin-bottom: ( calc-rem( $mk-listing-gutter--tiny ) );
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+@if ( $mk-enable-listing--small == true ) {
+
+	/**
+	 * Layouts with small gutters.
+	 */
+
+	.#{$mk-listing-namespace}listing--small,
+	%#{$mk-listing-namespace}listing--small {
+		margin-bottom: -( calc-rem( $mk-listing-gutter--small ) );
+
+		> .#{$mk-listing-namespace}listing__item,
+		> %#{$mk-listing-namespace}listing__item {
+			margin-bottom: ( calc-rem( $mk-listing-gutter--small ) );
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+@if ( $mk-enable-listing--large == true ) {
+
+	/**
+	 * Layouts with large gutters.
+	 */
+
+	.#{$mk-listing-namespace}listing--large,
+	%#{$mk-listing-namespace}listing--large {
+
+		margin-bottom: -( calc-rem( $mk-listing-gutter--large ) );
+
+		> .#{$mk-listing-namespace}listing__item,
+		> %#{$mk-listing-namespace}listing__item {
+
+			margin-bottom: ( calc-rem( $mk-listing-gutter--large ) );
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+@if ( $mk-enable-listing--huge == true ) {
+
+	/**
+	 * Layouts with huge gutters.
+	 */
+
+	.#{$mk-listing-namespace}listing--huge,
+	%#{$mk-listing-namespace}listing--huge {
+
+		margin-bottom: -( calc-rem( $mk-listing-gutter--huge ) );
+
+		> .#{$mk-listing-namespace}listing__item,
+		> %#{$mk-listing-namespace}listing__item {
+
+			margin-bottom: ( calc-rem( $mk-listing-gutter--huge ) );
+
+		}
+
+	}
+
+}
+
+
+
+
+
+@if ( $mk-enable-layout--flush == true ) {
+
+	/**
+	 * Layouts with no gutters.
+	 */
+
+	.#{$mk-layout-namespace}listing--flush,
+	%#{$mk-layout-namespace}listing--flush {
+
+		margin-bottom: 0;
+
+
+		> .#{$mk-layout-namespace}listing__item,
+		> %#{$mk-layout-namespace}listing__item {
+
+			margin-bottom: 0;
+
+		}
+
+	}
+
+}
+
+
+@if ( $mk-enable-listing--keylines == true ) {
+
+	.listing--keylines {
+
+		@extend .listing--flush;
+
+		> .listing__item:first-of-type > .listing__content {
+
+			border-top: $mk-listing-border-size solid $mk-listing-border-color;
+
+		}
+
+		> .listing__item:last-of-type > .listing__content {
+
+			border-bottom: $mk-listing-border-size solid $mk-listing-border-color;
+
+		}
+
+	}
+
+}
+
+
+
+@if ( $mk-enable-listing--outlined == true ) {
+
+	.listing--outlined {
+
+		> .listing__item > .listing__content {
+
+			border: $mk-listing-border-size solid $mk-listing-border-color; 
+
+		}
+
+		@if ( $mk-enable-listing--flush == true ) {
+
+			&.listing--flush {
+
+				margin-left: -( $mk-listing-border-size );
+				margin-right: -( $mk-listing-border-size );
+
+				> .listing__item > .listing__content {
+
+					margin-bottom: -( $mk-listing-border-size );
+					margin-right: -( $mk-listing-border-size );
+
+				}
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+@if ( $mk-enable-listing--keylines-between == true ) {
+
+	.listing--keylines-between {
+
+		@extend .listing--flush;
+
+		> .listing__item + .listing__item > .listing__content {
+
+			border-top: $mk-listing-border-size solid $mk-listing-border-color;
+
+		}
+
+	}
+
+}
+
+
+
+@if ( $mk-enable-listing--line-length == true ) {
+
+	.listing--line-length {
+
+		> .listing__item > .listing__content {
+
+			@extend .u-line-length;
+
+		}
+
+	}
+
+}

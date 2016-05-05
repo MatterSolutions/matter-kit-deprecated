@@ -1,0 +1,120 @@
+// Optional vars
+$mk-select-2-dropdown--search:          false; // Hide or show search bar
+
+$mk-select-2-border-width				: $mk-form-border-width !default;
+$mk-select-2-border-style				: $mk-form-border-style !default;
+$mk-select-2-font-weight				: $mk-form-font-weight !default;
+$mk-select-2-border-radius				: $mk-form-border-radius !default;
+
+
+$mk-select-2-input-padding-x: 			$mk-form-input-padding-x;
+$mk-select-2-input-padding-y: 			$mk-form-input-padding-y;
+
+
+$mk-select-2-label-text-size: 			$mk-form-label-text-size;
+$mk-select-2-label-weight:	 			$mk-form-label-weight;
+
+$mk-select-2-input-text-size: 			$mk-form-input-text-size;
+
+
+.select2-dropdown {
+
+	background-color: $mk-color-form-dropdown-background;
+	border-radius: $mk-select-2-border-radius;
+	border: $mk-select-2-border-width $mk-select-2-border-style $mk-color-form-border--focus;
+	display: block;
+	left: -100000px;
+	position: absolute;
+	width: 100%;
+	z-index: 1051;
+
+}
+
+.select2-results {
+
+	display: block;
+
+}
+
+.select2-results__options {
+
+	list-style: none;
+	margin: 0;
+	padding: 0;
+
+}
+
+.select2-results__option {
+
+	padding: calc-rem( $mk-select-2-input-padding-y / 2 )  calc-rem( $mk-select-2-input-padding-x );
+	user-select: none;
+
+	&:hover {
+
+		background-color: $mk-color-form-dropdown-background--hover;
+
+	}
+
+
+	&[aria-selected] {
+
+		cursor: pointer;
+
+	}
+
+}
+
+.select2-container--open .select2-dropdown {
+
+	left: 0;
+
+}
+
+.select2-container--open .select2-dropdown--above {
+
+	border-bottom-left-radius: 0;
+	border-bottom-right-radius: 0;
+	border-bottom: none;
+
+}
+
+.select2-container--open .select2-dropdown--below {
+
+	border-top-left-radius: 0;
+	border-top-right-radius: 0;
+	border-top: none;
+
+}
+
+.select2-search--dropdown {
+
+	display: block;
+	padding: calc-rem( $mk-select-2-input-padding-y )  calc-rem( $mk-select-2-input-padding-x );
+
+	.select2-search__field {
+
+		padding: calc-rem( $mk-select-2-input-padding-y )  calc-rem( $mk-select-2-input-padding-x );
+		width: 100%;
+
+		&::-webkit-search-cancel-button {
+
+			-webkit-appearance: none;
+
+		}
+		
+	}
+
+
+	&.select2-search--hide {
+
+		display: none;
+
+	}
+
+	@if( $mk-select-2-dropdown--search == false ) {
+
+		display: none;
+
+	}
+
+}

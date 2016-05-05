@@ -1,0 +1,213 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Blog Listing
+*	Basic listing style, full with media on mobile
+*	Includes styles for post meta
+*
+ ---------------------------------------------------------- */
+
+$list-feature-a-major-bp: 				lap;
+
+
+
+.list-feature-a {
+
+
+	// Media container
+	&__alpha {
+
+		@include mk-media-query( "#{ $list-feature-a-major-bp }" ) {
+
+			width: 40%;
+
+		}
+
+
+		@include mk-media-query( lap ) {
+
+			width: 25%;
+
+		}
+
+	}
+
+
+		// Media file itself, displays 'full width' on mobile
+		&__media {
+
+			padding-bottom: 100%;
+			display: block;
+
+			@include mk-media-query( false, palm-h ) {
+
+				padding-bottom: 60%;
+				margin-left: -( $mk-grid-page-gutter );
+				margin-right: -( $mk-grid-page-gutter );
+
+			}
+
+			@include mk-media-query( palm-h, "#{ $list-feature-a-major-bp }" ) {
+
+				padding-bottom: 40%;
+				margin-left: -( $mk-grid-page-gutter );
+				margin-right: -( $mk-grid-page-gutter );
+
+			}
+
+		}
+
+
+
+		&__meta {
+
+			margin-bottom: calc-rem( $mk-base-spacing-unit );
+
+		}
+
+
+
+
+
+	&__beta {
+
+		@include mk-media-query( false, "#{ $list-feature-a-major-bp }" ) {
+
+			padding-top: calc-rem( $mk-base-spacing-unit );
+			padding-bottom: calc-rem( $mk-base-spacing-unit );
+
+		}
+
+
+		@include mk-media-query( "#{ $list-feature-a-major-bp }" ) {
+
+			width: 60%;
+
+		}
+
+
+		@include mk-media-query( lap ) {
+
+			width: 75%;
+			padding-left: col( .5 );
+
+		}
+
+	}
+
+}
+
+
+
+
+
+/*
+*	Post meta styling
+*/
+.post-meta {
+
+	font-size: calc-rem( $mk-base-font-size--small );
+	font-weight: $mk-type-weight-primary--bold;
+	text-transform: uppercase;
+
+
+	/*
+	*	Tag listing
+	*/
+	&__tags {
+
+		.tag-item {
+
+			&:after {
+
+				content: ", ";
+
+			}
+
+			&:last-of-type:after {
+
+				content: "";
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+/*
+*	Blog Listing styles
+*/
+
+.listing-a {
+
+	margin-bottom: 0;
+
+	// Negative margin on the bottom of the listing
+	@include mk-media-query( "#{ $list-feature-a-major-bp }" ) {
+
+		margin-bottom: -( calc-rem( $mk-base-spacing-unit--large ) );
+
+	}
+
+
+
+	// Remove default margins on items
+	&__item {
+
+		margin-bottom: 0;
+
+	}
+
+
+
+	
+	/*
+	*	Listing items
+	*/
+	&__item {
+
+
+		// Add spacing to all content
+		.listing-a__content {
+
+			@include mk-media-query( "#{ $list-feature-a-major-bp }" ) {
+
+				padding-bottom: calc-rem( $mk-base-spacing-unit--large );
+				margin-bottom: 0;
+
+			}
+
+		}
+
+
+
+		// Add a keyline and vertical spacing to content areas except for the first item
+		+ .listing-a__item  .listing-a__content {
+
+			@include mk-media-query( "#{ $list-feature-a-major-bp }" ) {
+
+				padding-top: calc-rem( $mk-base-spacing-unit--large );
+				border-top: 1px solid $mk-color--grey-ui;
+
+			}
+
+		 }
+
+
+	}
+
+}

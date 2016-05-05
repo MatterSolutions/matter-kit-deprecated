@@ -1,0 +1,24 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Clearfix
+*	Allow extending or drop-in classes to clear floated elements
+*
+ ---------------------------------------------------------- */
+
+.clearfix,
+%clearfix { 
+
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+
+}

@@ -1,0 +1,58 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Image Links
+*
+ ---------------------------------------------------------- */
+
+.image-link {
+
+	display: block;
+	overflow: hidden;
+
+	&:before,
+	&__icon {
+
+		opacity: 0;
+		transition: opacity .2s ease;
+
+	}
+
+	&:before {
+		
+		background-color: rgba( $mk-color--attention, .8 );
+
+	}
+
+
+	&__content {
+
+		z-index: 5;
+
+	}
+
+
+	&--zoom:hover {
+
+		&:before {
+
+			opacity: .8;
+
+		}
+
+
+		.image-link__icon {
+
+			opacity: 1;
+
+		}
+
+	}
+
+}

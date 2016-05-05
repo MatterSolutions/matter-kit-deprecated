@@ -1,0 +1,241 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Icons
+*	Generic sizes to use throughout the layout
+*
+* 	Dependancies:
+* 	- base.typography
+ ---------------------------------------------------------- */
+
+
+// Predefine the variables below in order to alter and enable specific features.
+$mk-icon-namespace						: $mk-namespace !default;
+
+
+$mk-enable-icon--small					: true !default;
+$mk-enable-icon--large					: true !default;
+$mk-enable-icon--huge					: true !default;
+$mk-enable-icon--after					: true !default;
+$mk-enable-icon--before					: true !default;
+
+
+
+// Specific feature VARS
+$mk-icon-width							: ( $mk-base-spacing-unit - $mk-base-spacing-unit--tiny ) !default;
+$mk-icon-height							: ( $mk-base-spacing-unit - $mk-base-spacing-unit--tiny ) !default;
+$mk-icon-spacer							: $mk-base-spacing-unit--small !default;
+
+$mk-icon-width--small					: $mk-base-spacing-unit--small !default;
+$mk-icon-height--small					: $mk-base-spacing-unit--small !default;
+$mk-icon-spacer--small					: $mk-base-spacing-unit--tiny !default;
+
+$mk-icon-width--large					: ( $mk-base-spacing-unit ) !default;
+$mk-icon-height--large					: ( $mk-base-spacing-unit ) !default;
+$mk-icon-spacer--large					: $mk-base-spacing-unit--small !default;
+
+$mk-icon-width--huge					: ( $mk-base-spacing-unit--large + $mk-base-spacing-unit--small ) !default;
+$mk-icon-height--huge					: ( $mk-base-spacing-unit--large + $mk-base-spacing-unit--small ) !default;
+$mk-icon-spacer--huge					: $mk-base-spacing-unit !default;
+
+
+
+
+
+/*
+*	Begin icon element
+*/
+
+.#{$mk-icon-namespace}icon,
+%#{$mk-icon-namespace}icon {
+
+	height: calc-rem( $mk-icon-height );
+	width: calc-rem( $mk-icon-width );
+
+	> svg,
+	> img {
+
+		height: calc-rem( $mk-icon-height );
+		width: calc-rem( $mk-icon-width );
+
+	}
+
+
+	@if ( $mk-enable-icon--before == true ) {
+
+		&--before {
+
+			margin-right: calc-rem( $mk-icon-spacer );
+
+		}
+
+	}
+
+
+	@if ( $mk-enable-icon--after == true ) {
+
+		&--after {
+
+			margin-left: calc-rem( $mk-icon-spacer );
+
+		}
+
+	}
+
+
+
+	/*
+	*	Small modifier
+	*/
+
+	@if ( $mk-enable-icon--small == true ) {
+
+		&--small {
+
+			height: calc-rem( $mk-icon-height--small );
+			width: calc-rem( $mk-icon-width--small );
+
+			@if ( $mk-enable-icon--before == true ) {
+
+				&.icon--before {
+
+					margin-right: calc-rem( $mk-icon-spacer--small );
+
+				}
+
+			}
+
+			@if ( $mk-enable-icon--after == true ) {
+
+				&.icon--after {
+
+					margin-left: calc-rem( $mk-icon-spacer--small );
+
+				}
+
+			}
+
+			> svg,
+			> img {
+
+				height: calc-rem( $mk-icon-height--small );
+				width: calc-rem( $mk-icon-width--small );
+
+			}
+
+		}
+
+	} // End if small
+
+
+
+
+	/*
+	*	Large modifier
+	*/
+
+	@if ( $mk-enable-icon--large == true ) {
+
+		&--large {
+
+			height: calc-rem( $mk-icon-height--large );
+			width: calc-rem( $mk-icon-width--large );
+
+			@if ( $mk-enable-icon--before == true ) {
+
+				&.icon--before {
+
+					margin-right: calc-rem( $mk-icon-spacer--large );
+
+				}
+
+			}
+
+			@if ( $mk-enable-icon--after == true ) {
+
+				&.icon--after {
+
+					margin-left: calc-rem( $mk-icon-spacer--large );
+
+				}
+
+			}
+
+
+			> svg,
+			> img {
+
+				height: calc-rem( $mk-icon-height--large );
+				width: calc-rem( $mk-icon-width--large );
+
+			}
+
+		}
+
+	} // End if large
+
+
+
+	/*
+	*	Small modifier
+	*/
+
+	@if ( $mk-enable-icon--huge == true ) {
+
+		&--huge {
+
+			height: calc-rem( $mk-icon-height--huge );
+			width: calc-rem( $mk-icon-width--huge );
+
+			@if ( $mk-enable-icon--before == true ) {
+
+				&.icon--before {
+
+					margin-right: calc-rem( $mk-icon-spacer--huge );
+
+				}
+
+			}
+
+			@if ( $mk-enable-icon--after == true ) {
+
+				&.icon--after {
+
+					margin-left: calc-rem( $mk-icon-spacer--huge );
+
+				}
+
+			}
+
+			> svg,
+			> img {
+
+				height: calc-rem( $mk-icon-height--huge );
+				width: calc-rem( $mk-icon-width--huge );
+
+			}
+
+		}
+
+	} // End if huge
+
+
+
+	&--middle {
+
+		svg,
+		img {
+
+			vertical-align: middle;
+
+		}
+
+	}
+
+}

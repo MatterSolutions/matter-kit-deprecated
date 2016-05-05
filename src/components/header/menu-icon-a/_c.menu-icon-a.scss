@@ -1,0 +1,131 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Menu Icon
+*	A snazzy animated menu icon, becomes an x when toggled
+*
+ ---------------------------------------------------------- */
+
+
+$mk-menu-icon-thickness: 	2px;
+$mk-menu-icon-rounded: 		0;
+$mk-menu-icon-color: 		$mk-toggle-color;
+$mk-menu-icon-width: 		16px;
+$mk-menu-icon-spacing: 		( 2px + $mk-menu-icon-thickness );
+
+$mk-menu-icon-transition-delay: 	.2s; // Same as the body transition for the off canvas nav
+$mk-menu-icon-transition-time: 	.2s; // Time it takes for the transition to occur
+
+
+
+/*
+*	Placeholder for the menu icon bars to inherit from
+*/
+%mk-menu-icon-bar {
+
+	background-color: $mk-menu-icon-color;
+	border-radius: $mk-menu-icon-rounded;
+	display: block;
+	height: $mk-menu-icon-thickness;
+	width: $mk-menu-icon-width;
+
+}
+
+
+/*
+*	Begin menu icon block
+*/
+.menu-icon {
+
+	@extend .toggle;
+
+
+	&__body {
+
+		@extend .u-center;
+
+	}
+
+
+		&__bars {
+
+			// Main center bar
+			@extend %mk-menu-icon-bar;
+			position: relative;
+			transition: background-color $mk-menu-icon-transition-time ease $mk-menu-icon-transition-delay;
+			
+
+			// Top and bottom bars
+			&:after,
+			&:before {
+
+				@extend %mk-menu-icon-bar;
+				content: "";
+				position: absolute;
+				transform-origin: center  center;
+				transform: rotate( 0 );
+  				transition: top $mk-menu-icon-transition-time ease $mk-menu-icon-transition-delay, transform $mk-menu-icon-transition-time ease 0s; 
+
+			}
+
+
+			// Top bar
+			&:before {
+
+				top: -( $mk-menu-icon-spacing );
+
+			}
+
+
+			// Bottom bar
+			&:after {
+
+				top: ( $mk-menu-icon-spacing );
+
+			}
+
+
+
+			/*
+			*	Transitioned state
+			*/
+			.off-canvas--left & {
+
+				// Main center bar
+				background-color: transparent;
+
+				&:before,
+				&:after {
+
+					top: 0;
+					transition-delay: 0s, $mk-menu-icon-transition-delay;
+
+				}
+
+
+				// Top bar
+				&:before {
+
+					transform: rotate( 45deg );
+
+				}
+
+
+				// Bottom bar
+				&:after {
+
+					transform: rotate( -45deg );
+
+				}
+
+			}
+
+		}
+
+}

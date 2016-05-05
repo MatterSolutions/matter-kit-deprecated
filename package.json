@@ -1,0 +1,30 @@
+{
+  "name": "Matter",
+  "theme_name": "matter-kit",
+  "client_code": "msmk",
+  "version": "0.9.0",
+  "description": "Do nothing. Do more.",
+  "scripts": {
+    "postinstall": "node node_modules/bower/bin/bower install && grunt dev"
+  },
+  "author": "Matter Solutions <helpdesk@mattersolutions.com.au>",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "*",
+    "bower": "*",
+    "grunt": "*",
+    "grunt-browser-sync": "*",
+    "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "*",
+    "grunt-contrib-less": "*",
+    "grunt-contrib-sass": "*",
+    "grunt-contrib-uglify": "*",
+    "grunt-contrib-watch": "*",
+    "grunt-modernizr": "*",
+    "grunt-postcss": "*",
+    "grunt-simple-include": "*",
+    "grunt-sync": "*",
+    "load-grunt-tasks": "*",
+    "time-grunt": "*"
+  }
+}

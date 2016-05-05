@@ -1,0 +1,155 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file contains the base global color settings
+*	For specific elements, such as the navigation, please
+*	assign those in their relevant partial.
+*
+*	Dependancies:
+*	- None
+*
+*	Contents:
+*	- Primary Typeface Variables
+*	- Secondary Typeface Variables
+*
+ ---------------------------------------------------------- */
+
+/* ---------------------------------------------
+*	=Greys
+*
+*	Named after their actual color, these can be used in
+*	the color vars further down.
+*------------------------------------------------*/
+
+	$mk-color--white								: #FFFFFF !default;
+	$mk-color--ghost								: #FAFAFA !default;
+	$mk-color--snow									: #F9F9F9 !default;
+	$mk-color--vapor								: #F6F6F6 !default;
+	$mk-color--white-smoke							: #F5F5F5 !default;
+	$mk-color--silver								: #EFEFEF !default;
+	$mk-color--smoke								: #EEEEEE !default;
+	$mk-color--gainsboro							: #DDDDDD !default;
+	$mk-color--iron									: #CCCCCC !default;
+	$mk-color--base									: #AAAAAA !default;
+	$mk-color--aluminum								: #999999 !default;
+	$mk-color--jumbo								: #888888 !default;
+	$mk-color--monsoon								: #777777 !default;
+	$mk-color--steel								: #666666 !default;
+	$mk-color--charcoal								: #555555 !default;
+	$mk-color--tuatara								: #444444 !default;
+	$mk-color--oil									: #333333 !default;
+	$mk-color--jet									: #222222 !default;
+	$mk-color--black								: #000000 !default;
+
+/* ---------------------------------------------
+*	=Global colors
+*
+*	These variables are used to produce the style tile colors
+*	and as defaults for many elements
+*------------------------------------------------*/
+
+	// Branding colors
+	$mk-color--primary								: #ed2a7b !default;
+	$mk-color--secondary							: #21203a !default;
+	$mk-color--tertiary								: $mk-color--tuatara !default;
+	$mk-color--quaternary							: $mk-color--white-smoke !default;
+	$mk-color--senary								: $mk-color--white-smoke !default;
+
+	// Call to action
+	$mk-color--attention							: $mk-color--primary !default;
+
+	// Postive/Negative colors
+	$mk-color--positive								: #067302 !default;
+	$mk-color--negative								: #EA1F54 !default;
+
+	// Misc colors
+	$mk-color--highlight							: #e5554e !default;  // Used for text highlight
+	$mk-color--tint									: $mk-color--black !default;  // Used for overlay tints
+
+/* ---------------------------------------------
+*	=Element colors
+*
+*	These variables are used to produce the default
+*	colors for the styleguide elements
+*------------------------------------------------*/
+
+	//*	=Page - base page background and text colors
+	$mk-color-base-text								: #333 !default;
+	$mk-color-base-background						: $mk-color--white !default;
+
+	// Standard grey for borders/keylines
+	$mk-color--grey-ui								: $mk-color--vapor !default;
+	$mk-color--grey-ui-light						: $mk-color--white-smoke !default;
+	$mk-color--grey-ui-dark							: $mk-color--aluminum !default;
+
+	//* =Links
+	$mk-color-link									: $mk-color--attention !default;
+	$mk-color-link--hover							: darken( $mk-color--attention, 10 ) !default;
+	$mk-color-link--active							: $mk-color-link--hover !default;
+	$mk-color-link--visited							: darken( $mk-color--attention, 20 ) !default;
+
+	//*	=Code
+	$mk-color-code-background						: $mk-color--highlight !default;
+	$mk-color-code									: $mk-color-base-text !default;
+
+	//*	=Pre
+	$mk-color-pre-background						: $mk-color--grey-ui !default;
+	$mk-color-pre									: $mk-color--white !default;
+	$mk-color-pre-code								: $mk-color--black !default;
+
+	//*	=Buttons
+	$mk-color-btn-primary-background				: $mk-color--attention !default;
+	$mk-color-btn-primary-background--hover			: darken( $mk-color-btn-primary-background, 8 ) !default;
+	$mk-color-btn-primary-border					: $mk-color-btn-primary-background !default;
+	$mk-color-btn-primary							: $mk-color--white !default;
+	$mk-color-btn-secondary-background				: $mk-color--secondary !default;
+
+	$mk-color-btn-secondary-background--hover		: darken( $mk-color-btn-secondary-background, 8 ) !default;
+	$mk-color-btn-secondary-border					: $mk-color-btn-secondary-background !default;
+	$mk-color-btn-secondary							: $mk-color--white !default;
+
+	//*	=SVG
+	$mk-color-svg--fill								: $mk-color--primary !default;
+	$mk-color-svg--stroke							: $mk-color--primary !default;
+
+	//*	=Headings
+	$mk-color-headings--primary						: $mk-color-base-text !default;
+	$mk-color-headings--secondary					: $mk-color-base-text !default;
+
+	//*	=Quotes
+	$mk-color-quote-decoration						: $mk-color--secondary;
+	$mk-color-quote-background						: transparent !default;
+	$mk-color-quote									: $mk-color-base-text !default;
+
+	//*	=Forms
+	$mk-color-form-background						: $mk-color--white !default;
+	$mk-color-form-background--hover				: $mk-color--white !default;
+	$mk-color-form-background--focus				: $mk-color-form-background--hover;
+	$mk-color-form-border							: $mk-color--grey-ui !default;
+	$mk-color-form-border--hover					: darken( $mk-color--grey-ui, 5 ) !default;
+	$mk-color-form-border--focus					: darken( $mk-color-form-border--hover, 5 ) !default;
+	$mk-color-form-text								: $mk-color-base-text !default;
+	$mk-color-form-placeholder						: lighten( $mk-color-base-text, 40 );
+	$mk-color-form-label							: $mk-color-base-text !default;
+	$mk-color-form-checkbox							: $mk-color--attention !default;
+	$mk-color-form-dropdown-background				: $mk-color-form-background !default;
+	$mk-color-form-dropdown-background--hover		: darken( $mk-color-form-background--hover, 2 ) !default;
+
+	//*	=Tables
+	$mk-color-table-background						: transparent !default;
+	$mk-color-table-text							: $mk-color--white !default;
+	$mk-color-table-border							: $mk-color--grey-ui !default;
+
+	$mk-color-table-heading-background				: $mk-color--secondary !default;
+	$mk-color-table-heading							: $mk-color--white !default;
+
+	$mk-color-table-row-background					: transparent !default;
+	$mk-color-table-row-background--hover			: darken( $mk-color--white, 3 );
+	$mk-color-table-row								: $mk-color-base-text !default;
+	$mk-color-table-row--hover						: $mk-color-base-text !default;

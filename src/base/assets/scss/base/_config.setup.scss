@@ -1,0 +1,99 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file imports the base mixins and functions needed for
+*	the framework to work. These are set in a specified order
+*	for variable dependencies.
+*
+ ---------------------------------------------------------- */
+
+
+	// Import the bourbon mixin library
+	@import '../../../../../bower_components/bourbon/app/assets/stylesheets/bourbon';
+
+
+	// Global namespace for Matter Kit Classes
+ 	$mk-namespace: 		''; // mk- suggested if there are conflicts
+
+
+ 	// Setup default config - this is for testing purposes and enables ALL options
+ 	// @import 'config.enable-all';
+
+
+	// Main functions
+	@import 'magic/base.functions';
+
+
+	// Vars
+	@import 'config.grid-settings';
+	@import 'config.typography';
+	@import 'config.colors';
+	@import 'config.misc';
+	@import 'config.element-breakpoints';
+
+
+	// Mixins & Utlities
+	@import 'magic/base.mixins';
+	@import 'magic/base.helpers';
+	
+
+	// Resets etc
+	@import 'magic/base.reset';
+ 	@import 'magic/base.box-sizing';
+ 	@import 'magic/base.clearfix';
+ 	@import 'magic/base.normalize';
+
+
+
+	// Styleguide elements
+ 	@import 'elements/base.page';
+ 	@import 'elements/base.objects';
+ 	@import 'elements/base.hr';
+ 	@import 'elements/base.images';
+ 	@import 'elements/base.links';
+ 	@import 'elements/base.lists';
+ 	@import 'elements/base.forms';
+ 	@import 'elements/base.tables';
+ 	@import 'elements/base.quotes';
+ 	@import 'elements/base.blockquote';
+ 	@import 'elements/base.shared';
+ 	@import 'elements/base.headings';
+
+
+	// Generic Core Modules
+	@import 'modules/m.wrap';
+	@import 'modules/m.layout';
+	@import 'modules/m.listing';
+	@import 'modules/m.list';
+	@import 'modules/m.band';
+	@import 'modules/m.overlay';
+	@import 'modules/m.navigation';
+	@import 'modules/m.ratio';
+
+
+	// Inner content core modules
+	@import 'modules/m.display-heading';
+	@import 'modules/m.lede-a';
+	@import 'modules/m.button';
+	@import 'modules/m.icon';
+	@import 'modules/m.arrows';
+	@import 'modules/m.nudge';
+	@import 'modules/m.box';
+	@import 'modules/m.avatar';
+	@import 'modules/m.gallery-listing';
+	@import 'modules/m.effect';
+
+
+	// Map Modules
+	@import 'modules/m.map';
+	@import 'modules/m.marker';
+	
+
+	// Wordpress specific styles
+	@import 'modules/m.wordpress';

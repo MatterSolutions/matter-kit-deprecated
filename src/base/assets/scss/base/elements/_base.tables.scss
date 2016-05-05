@@ -1,0 +1,85 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Table
+*	Styling for table elements, including the table heading elements
+*
+ ---------------------------------------------------------- */
+
+
+$mk-table-border-style: 			solid !default;
+$mk-table-border-size: 				1px !default;
+
+$mk-table-heading-align:  			left !default;
+$mk-table-heading-font-weight: 		$mk-type-weight-primary--bold !default;
+$mk-table-heading-text-transform: 	uppercase !default;
+
+$mk-table-element-align:  			left !default;
+$mk-table-element-padding-x:  		$mk-base-spacing-unit !default;
+$mk-table-element-padding-y:  		$mk-base-spacing-unit--small !default;
+
+
+
+table {
+
+	border-collapse: collapse;
+	border-spacing: 0;
+	margin-bottom: calc-rem( $mk-base-spacing-unit );
+	width: 100%;
+
+}
+
+
+tr {
+
+	background-color: $mk-color-table-background;
+	color: $mk-color-table-row;
+
+	&:hover {
+
+		background-color: $mk-color-table-row-background--hover;
+		color: $mk-color-table-row--hover;
+
+	}
+
+}
+
+
+tbody {
+
+	border-bottom: $mk-table-border-size $mk-table-border-style $mk-color-table-border;
+
+}
+
+
+td,
+th {
+
+	border-top: $mk-table-border-size $mk-table-border-style $mk-color-table-border;
+	padding: ( calc-em( $mk-table-element-padding-y ) )  ( calc-em( $mk-table-element-padding-x ) );
+
+}
+
+
+th {
+
+	background-color: $mk-color-table-heading-background;
+	color: $mk-color-table-heading;
+	font-weight: $mk-table-heading-font-weight;
+	text-align: $mk-table-heading-align;
+	text-transform: $mk-table-heading-text-transform;
+
+}
+
+
+td {
+
+	text-align: $mk-table-element-align;
+
+}

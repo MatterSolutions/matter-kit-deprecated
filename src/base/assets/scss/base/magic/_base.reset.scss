@@ -1,0 +1,53 @@
+///*------------------------------------*\
+//	=RESET
+//\*------------------------------------*/
+
+/**
+ * Sometimes we just need to remove margins even though we're using normalize.
+ */
+body,
+h1, h2, h3, h4, h5, h6,
+p, blockquote, pre,
+dl, dd, ol, ul,
+form, fieldset, legend,
+figure,
+table, th, td, caption,
+hr {
+	margin:  0;
+	padding: 0;
+}
+
+
+
+
+
+/**
+ * Give `cursor: help` for `:hover` on these elements.
+ */
+abbr[title],
+dfn[title] {
+	cursor: help;
+}
+
+
+
+
+
+/**
+ * No underlines for yuo!
+ */
+u,
+ins {
+	text-decoration: none;
+}
+
+
+
+
+
+/**
+ * Faux underlines via `border-bottom` for insterted text.
+ */
+ins {
+	border-bottom: 1px solid;
+}

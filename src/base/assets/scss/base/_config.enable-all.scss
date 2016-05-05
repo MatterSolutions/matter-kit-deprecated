@@ -1,0 +1,154 @@
+/*
+*	This partial sets variables to enable ALL elements, even if they're disabled by default
+*/
+
+
+/*
+*	Band vars
+*/
+$band--tiny:					true;
+$band--small:					true;
+$band--large:					true;
+$band--huge:					true;
+$band--giga:					true;
+
+$band--background-fixed:		true;
+$band--background-fit:			true;
+
+$band--hero:					true;
+$band--attention:				true;
+
+
+
+
+/*
+*	Box vars
+*/
+$mk-box-enable--large: 				true;
+
+$mk-box-enable--primary: 			true;
+$mk-box-enable--secondary: 			true;
+$mk-box-enable--tertiary: 			true;
+$mk-box-enable--quaternary: 		true;
+$mk-box-enable--senary: 			true;
+
+$mk-box-enable--white: 				true;
+$mk-box-enable--semi-transparent:	true;
+$mk-box-enable--outlined:			true;
+
+
+
+
+/*
+*	Buttons
+*/
+
+// Setup button type vars
+$btn--inverse:					true;
+$btn--secondary:				true;
+$btn--ghost:					true;
+$btn--fill:						true;
+
+$btn--small:					true;
+$btn--large:					true;
+
+
+
+
+
+
+/*
+*	Hero Units
+*/
+
+// Hero Widths
+$mk-hero-standard-enable--wide: 				true; // Full width
+$mk-hero-standard-enable--extend: 				true; // Extend a column either side
+
+
+// Indicator
+$mk-hero-standard-enable--indicator: 			true; // Enable scroll indicator
+
+
+// Alignment
+$mk-hero-standard-enable--center: 				true; // Center alignment
+$mk-hero-standard-enable--left: 				true; // Left Alignment
+$mk-hero-standard-enable--right: 				true; // Right alignment
+
+$mk-hero-standard-enable--bottom: 				true; // Bottom alignment
+$mk-hero-standard-enable--top: 					true; // Top alignment
+
+
+// Sizes
+$mk-hero-standard-enable--large: 				true; // Large size
+$mk-hero-standard-enable--fullscreen: 			true; // Fullscreen size
+
+
+// Overlay
+$mk-hero-standard-enable--overlay: 				true; // Add tint/overlay
+
+
+// Hero Title
+$mk-hero-standard-enable-display-heading: 		true; // true defaults to h1 styles
+
+// Text Shadow
+$mk-hero-standard-enable--text-shadow: 			true;
+
+
+
+
+
+/*
+*	Feature A
+*/
+
+$feature-a-enable-v-align--top: 				true;
+$feature-a-enable-v-align--bottom: 				true;
+$feature-a-enable-v-align--middle: 				true;
+
+$feature-a-enable-h-align--left: 				true;
+$feature-a-enable-h-align--center: 				true;
+$feature-a-enable-h-align--right: 				true;
+
+$feature-a-enable-ratio--rectangle:				true;
+
+$feature-a-enable--overlay:						true;
+$feature-a-enable--text-shadow: 				true;
+
+
+
+
+/*
+*	Layout
+*/
+$mk-enable-layout--tiny		: true !default;
+$mk-enable-layout--small	: true !default;
+$mk-enable-layout--large	: true !default;
+$mk-enable-layout--huge		: true !default;
+$mk-enable-layout--flush	: true !default;
+$mk-enable-layout--rev		: true !default;
+$mk-enable-layout--alternate: true !default;
+$mk-enable-layout--middle	: true !default;
+$mk-enable-layout--bottom	: true !default;
+$mk-enable-layout--right	: true !default;
+$mk-enable-layout--center	: true !default;
+$mk-enable-layout--auto		: true !default;
+
+
+
+
+/*	
+*	Listing
+*/
+
+$mk-enable-listing--tiny			: $mk-enable-layout--tiny !default;
+$mk-enable-listing--small			: $mk-enable-layout--small !default;
+$mk-enable-listing--large			: $mk-enable-layout--large !default;
+$mk-enable-listing--huge			: $mk-enable-layout--huge !default;
+$mk-enable-listing--flush			: $mk-enable-layout--flush !default;
+
+
+
+$mk-enable-listing--lines-between	: true !default;
+$mk-enable-listing--lines-bottom	: true !default;
+$mk-enable-listing--outlined		: true !default;

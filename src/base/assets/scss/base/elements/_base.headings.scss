@@ -1,0 +1,114 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Standard heading styling
+*	By default, these work with the calculated type scale
+*
+ ---------------------------------------------------------- */
+
+/*
+*	Heading sizes
+*/
+
+$mk-heading-size--nano: 				calc-type-scale( 0 );
+$mk-heading-size--tiny: 				calc-type-scale( 1 );
+$mk-heading-size--small: 				calc-type-scale( 2 );
+$mk-heading-size--medium: 				calc-type-scale( 3 );
+$mk-heading-size--large: 				calc-type-scale( 4 );
+$mk-heading-size--huge: 				calc-type-scale( 5 );
+$mk-heading-size--giga: 				calc-type-scale( 6 );
+
+
+h1 {
+
+	font-size: calc-rem( $mk-heading-size--huge );
+
+}
+
+h2 {
+
+	font-size: calc-rem( $mk-heading-size--large );
+
+}
+
+h3 {
+
+	font-size: calc-rem( $mk-heading-size--medium );
+
+}
+
+h4 {
+
+	font-size: calc-rem( $mk-heading-size--small );
+
+}
+
+h5 {
+
+	font-size: calc-rem( $mk-heading-size--tiny );
+
+}
+
+h6 {
+
+	font-size: calc-rem( $mk-heading-size--nano );
+
+}
+
+
+h5,
+h6 {
+
+	text-transform: uppercase;
+
+}
+
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+
+	color: inherit;
+	line-height: 1;
+	margin-bottom: .2em;
+	margin-top: 0;
+
+}
+
+
+
+
+p,
+ul,
+ol,
+table,
+hr {
+
+	+ h1,
+	+ h2,
+	+ h3,
+	+ h4,
+	+ h5,
+	+ h6 {
+
+		margin-top: calc-rem( $mk-base-spacing-unit );
+
+		@include mk-media-query( desk ) {
+
+			margin-top: calc-rem( ( $mk-base-spacing-unit + $mk-base-spacing-unit--small ) );
+
+		}
+
+	}
+
+}

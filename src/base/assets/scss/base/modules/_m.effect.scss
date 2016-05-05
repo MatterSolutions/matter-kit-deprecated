@@ -1,0 +1,52 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	'Fancy' hover effects
+*
+ ---------------------------------------------------------- */
+
+ $mk-effect-enable--scale: 			true !default;
+
+
+.effect {
+
+
+	/*
+	*	Output the scaling effect
+	*/
+
+	@if ( $mk-effect-enable--scale ) {
+
+		&--scale {
+
+			.effect__content {
+
+				transform: scale( 1 );
+				transition: all .2s ease;
+
+			}
+
+			.effect__item {
+
+				overflow: hidden;
+
+			}
+
+
+			&:hover .effect__content {
+
+				transform: scale( 1.05 );
+
+			}
+
+		}
+
+	}
+
+}

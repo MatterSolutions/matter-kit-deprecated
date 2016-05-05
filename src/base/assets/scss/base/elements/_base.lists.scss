@@ -1,0 +1,38 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Lists
+*	Standard styling for ordered, unordered lists and their list items
+*
+ ---------------------------------------------------------- */
+
+li {
+
+	> ul,
+	> ol {
+
+		margin-bottom: 0;
+
+	}
+
+}
+
+
+ul {
+
+	list-style-type: disc;
+
+}
+
+
+ol {
+
+	list-style-type: decimal;
+
+}

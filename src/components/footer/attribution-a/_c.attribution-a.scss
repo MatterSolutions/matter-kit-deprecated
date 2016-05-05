@@ -1,0 +1,64 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Attribution
+*	Matter Solutions attribution, with scale when hovering the logo
+*
+ ---------------------------------------------------------- */
+
+$mk-attribution-text-color: 				$mk-color-base-text;
+$mk-attribution-text-color--hover:			$mk-color-base-text;
+
+$mk-attribution-width: 						78px;
+$mk-attribution-height: 					31px;
+
+
+
+
+/*
+*	Matter Solutions attribution logo
+*/
+.attribution {
+
+	display: inline-block;
+	transform: scale( 1 );
+	transition: transform .3s ease;
+
+	// Scale the element on hover
+	&:hover {
+
+		transform: scale( 1.1 );
+
+		// Change SVG colour if these are not the same
+		@if ( $mk-attribution-text-color != $mk-attribution-text-color--hover ) {
+
+			svg {
+
+				fill: $mk-attribution-text-color--hover;
+
+			}
+
+		}
+
+	}
+
+	// Set the SVG height and width, offset vertical positioning based on the rotation
+	svg {
+
+		fill: $mk-attribution-text-color;
+		height: calc-rem( $mk-attribution-height );
+		position: relative;
+		top: calc-rem( $mk-attribution-height / 10 );
+		transform: rotate( -6deg );
+		transition: fill .2s ease;
+		width: calc-rem( $mk-attribution-width );
+
+	}
+
+}

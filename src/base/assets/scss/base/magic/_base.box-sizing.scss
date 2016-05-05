@@ -1,0 +1,36 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Box Sizing
+*	Force a global standard of border-box, this can be changed
+*	on an element basis, with child elements inheriting from the parent
+*
+ ---------------------------------------------------------- */
+
+html {
+	box-sizing: border-box;
+}
+
+* {
+
+	&,
+	&:before,
+	&:after {
+			box-sizing: inherit;
+		}
+
+}
+
+
+
+
+
+// Have we included this file? If so tell everything else that `box-sizing`
+// has been set!
+$mk-global-border-box: true;

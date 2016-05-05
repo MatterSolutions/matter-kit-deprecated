@@ -1,0 +1,297 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Nudge
+*	Designed to move small elements to show they're clickable
+*	One use case would be nudging arrows on CTA links
+*
+ ---------------------------------------------------------- */
+
+
+// Setup nudge vars
+$mk-enable-nudge:					true;
+
+$mk-nudge--left:					false;
+$mk-nudge--right:					true;
+$mk-nudge--up:						false;
+$mk-nudge--down:					true;
+
+
+// Enable Nudge sizes
+$mk-nudge--large: 					true;
+$mk-nudge--small: 					false;
+
+
+// Nudge sizes
+$mk-nudge-size: 					.5em;
+$mk-nudge-size--small:				( $mk-nudge-size / 2 );
+$mk-nudge-size--large:				( $mk-nudge-size * 2 );
+
+
+
+/*
+*	Begin Nudge Component
+*/
+
+@if ( $mk-enable-nudge == true ) {
+
+	.#{$mk-namespace}nudge {
+
+
+		&__item {
+
+			display: inline-block; // Can't be inline, because the animation jitters
+			transition: all .2s ease;
+
+		}
+
+
+
+
+		@if ( $mk-nudge--left  ==  true ) {
+
+			// Nudge item left
+			&--left:hover {
+
+				.#{$mk-namespace}nudge__item {
+
+					transform: translateX( -( $mk-nudge-size ) );
+
+				}
+
+			}
+
+		}
+
+
+
+
+
+		@if ( $mk-nudge--right  ==  true ) {
+
+			// Nudge item right
+			&--right:hover {
+
+				.#{$mk-namespace}nudge__item {
+
+					transform: translateX( $mk-nudge-size );
+
+				}
+
+			}
+
+		}
+
+
+
+
+
+		@if ( $mk-nudge--up  ==  true ) {
+
+			// Nudge item up
+			&--up:hover {
+
+				.#{$mk-namespace}nudge__item {
+
+					transform: translateY( -( $mk-nudge-size ) );
+
+				}
+
+			}
+
+		}
+
+
+
+		@if ( $mk-nudge--down  ==  true ) {
+
+			// Nudge item down
+			&--down:hover {
+
+				.#{$mk-namespace}nudge__item {
+
+					transform: translateY( $mk-nudge-size );
+
+				}
+
+			}
+
+		}
+
+
+
+
+
+
+
+
+		/*
+		*	Begin small nudge
+		*/
+		@if ( $mk-nudge--small  ==  true ) {
+
+			@if ( $mk-nudge--left  ==  true ) {
+
+				// Nudge item left
+				&--left.#{$mk-namespace}nudge--small:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateX( -( $mk-nudge-size--small ) );
+
+					}
+
+				}
+
+			}
+
+
+
+
+
+			@if ( $mk-nudge--right  ==  true ) {
+
+				// Nudge item right
+				&--right.#{$mk-namespace}nudge--small:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateX( $mk-nudge-size--small );
+
+					}
+
+				}
+
+			}
+
+
+
+
+
+			@if ( $mk-nudge--up  ==  true ) {
+
+				// Nudge item up
+				&--up.#{$mk-namespace}nudge--small:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateY( -( $mk-nudge-size--small ) );
+
+					}
+
+				}
+
+			}
+
+
+
+			@if ( $mk-nudge--down  ==  true ) {
+
+				// Nudge item down
+				&--down.#{$mk-namespace}nudge--small:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateY( $mk-nudge-size--small );
+
+					}
+
+				}
+
+			}
+
+		}
+
+
+
+
+
+
+
+
+		/*
+		*	Begin large nudge
+		*/
+		@if ( $mk-nudge--large  ==  true ) {
+
+			@if ( $mk-nudge--left  ==  true ) {
+
+				// Nudge item left
+				&--left.#{$mk-namespace}nudge--large:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateX( -( $mk-nudge-size--large ) );
+
+					}
+
+				}
+
+			}
+
+
+
+
+
+			@if ( $mk-nudge--right  ==  true ) {
+
+				// Nudge item right
+				&--right.#{$mk-namespace}nudge--large:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateX( $mk-nudge-size--large );
+
+					}
+
+				}
+
+			}
+
+
+
+
+
+			@if ( $mk-nudge--up  ==  true ) {
+
+				// Nudge item up
+				&--up.#{$mk-namespace}nudge--large:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateY( -( $mk-nudge-size--large ) );
+
+					}
+
+				}
+
+			}
+
+
+
+			@if ( $mk-nudge--down  ==  true ) {
+
+				// Nudge item down
+				&--down.#{$mk-namespace}nudge--large:hover {
+
+					.#{$mk-namespace}nudge__item {
+
+						transform: translateY( $mk-nudge-size--large );
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+} // end if nudge enabled

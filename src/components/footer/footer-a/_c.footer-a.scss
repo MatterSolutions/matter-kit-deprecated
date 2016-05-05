@@ -1,0 +1,79 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Footer A
+*	Footer element containing a menu and brand
+*
+ ---------------------------------------------------------- */
+
+$mk-footer-a--text-size: 					$mk-base-font-size--small;
+$mk-footer-a--major-breakpoint: 			lap;
+
+$mk-footer-a-color: 						$mk-color--white;
+$mk-footer-a-subheading-border-colour: 		rgba( $mk-footer-a-color, .3 );
+
+
+/*
+*	Begin styles
+*/
+.footer-a {
+
+	font-size: calc-rem( $mk-footer-a--text-size );
+
+	&__primary {
+
+		@include mk-media-query( "#{ $mk-footer-a--major-breakpoint }" ) {
+
+			width: col( 3 );
+
+		}
+
+	}
+
+
+	&__secondary {
+
+		a {
+
+			text-decoration: none;
+
+			&:hover {
+
+				text-decoration: underline;
+
+			}
+
+		}
+
+		@include mk-media-query( "#{ $mk-footer-a--major-breakpoint }" ) {
+
+			width: col( 9 );
+
+		}
+
+
+		.navigation > .menu-item > a {
+
+			@extend h6;
+
+		}
+
+	}
+
+
+	&__subheading {
+
+		@extend .u-keyline--bottom;
+		margin-bottom: calc-rem( $mk-base-spacing-unit );
+		padding-bottom: calc-rem( $mk-base-spacing-unit--tiny );
+		border-color: $mk-footer-a-subheading-border-colour;
+
+	}
+
+}

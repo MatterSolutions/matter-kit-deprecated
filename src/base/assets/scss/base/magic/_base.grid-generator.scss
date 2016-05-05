@@ -1,0 +1,45 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file generates the grid width classes for the major breakpoints
+*	It is not recommended to edit this file, but to edit the variables
+*	located in _base.grid-settings.scss
+*
+ ---------------------------------------------------------- */
+
+	@if ( $mk-grid-generator == true ) {
+
+
+  		// Loop through each breakpoint size
+		@each $breakpoint, $breakpoint-size in $mk-grid-breakpoints {
+
+			// Check to see if it's NOT palm (palm doesn't require a media query)
+			@if ( $breakpoint != palm ) {
+
+				// Include the media query for our breakpoint
+				@include mk-media-query( $breakpoint ) {
+
+					// Output the grid class sizes for this breakpoint
+					@include mk-grid-column-class-loop( $breakpoint );
+
+				}
+
+			}
+
+			// Output for PALM
+			@else {
+
+				// Output the grid class sizes for this breakpoint
+				@include mk-grid-column-class-loop( $breakpoint );
+
+			}
+
+		}
+
+	}

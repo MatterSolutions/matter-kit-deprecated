@@ -1,0 +1,253 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Navigation
+*	Base navigation styles for all forms of navigation
+*
+*
+ ---------------------------------------------------------- */
+
+
+// Primary navigation breakpoint
+$mk-primary-navigation-breakpoint: 			desk;
+
+
+$mk-enable-navigation--vertical: 			false;
+$mk-enable-navigation--horizontal: 			true;
+$mk-enable-navigation--h-center: 			true; // Horizontally center a dropdown
+
+
+
+
+/*
+*	Remove padding and listing styling from navigation and submenus
+*/
+.#{$mk-namespace}navigation {
+
+	@extend .list--bare;
+	padding-left: 0;
+
+	@include mk-media-query( $mk-primary-navigation-breakpoint ) {
+
+		.menu-item {
+
+			position: relative;
+
+		}
+
+	}
+
+
+
+
+	/*
+	*	Vertical Menus
+	*/
+	@if ( $mk-enable-navigation--vertical == true ) {
+
+		&--vertical {
+
+			@include mk-media-query( $mk-primary-navigation-breakpoint ) {
+
+				.menu-item {
+
+					&:hover .sub-menu {
+
+						opacity: 1;
+						visibility: visible;
+
+					}
+
+				}
+
+				.sub-menu {
+
+					left: 100%;
+					top: 0;
+
+				}
+
+			}
+
+		} // end --vertical
+
+	} // End if
+
+
+
+
+
+
+	/*
+	*	Horizontal Menus
+	*/
+	@if ( $mk-enable-navigation--horizontal == true ) {
+
+		&--horizontal {
+
+			@include mk-media-query( $mk-primary-navigation-breakpoint ) {
+
+				.menu-item {
+
+					display: inline-block;
+
+					&:hover > .sub-menu {
+
+						opacity: 1;
+						visibility: visible;
+
+					}
+
+				}
+
+				.sub-menu {
+
+					left: 0;
+					top: 100%;
+
+					.sub-menu {
+
+						left: 100%;
+						top: -1px;
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $mk-enable-navigation--h-center == true ) {
+
+		&--h-center {
+
+			@include mk-media-query( $mk-primary-navigation-breakpoint ) {
+
+				.sub-menu {
+
+					left: 50%;
+					top: 100%;
+					transform: translateX( -50% );
+
+					.sub-menu {
+
+						left: 100%;
+						top: -1px;
+						transform: translateX( 0 );
+
+					}
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+
+
+	&--sliding {
+
+		@include mk-media-query( false, $mk-primary-navigation-breakpoint ) {
+
+			transition: transform .2s ease;
+
+			.sub-menu {
+
+				position: absolute;
+				top: 0;
+				left: 100%;
+				width: 100%;
+
+			}
+
+		}
+
+	}
+
+
+
+	&--sidebar {
+
+		.menu-item a {
+
+			display: none;
+
+		}
+
+		// Display top level or ancestors, depending on our current location
+		.current-menu-ancestor .current-menu-ancestor a,
+		> .current-menu-item > a,
+		> .current-menu-item > ul > .menu-item > a,
+		> .current-menu-ancestor > ul > .current-menu-item a {
+
+			display: block; 
+
+		}
+
+	}
+
+
+	// Useful for footer menus
+	&--columned {
+
+		> .menu-item {
+
+			display: inline-block;
+			margin-right: -4px;
+			vertical-align: top;
+			width: 100%;
+
+			@include mk-media-query( palm-h ) {
+
+				width: 50%;
+
+			}
+
+			@include mk-media-query( desk ) {
+
+				width: col( 3 );
+
+			}
+
+		}
+
+	}
+
+
+}
+
+
+	.sub-menu {
+
+		@extend .list--bare;
+
+		@include mk-media-query( $mk-primary-navigation-breakpoint ) {
+
+			.masthead & {
+
+				opacity: 0;
+				position: absolute;
+				transition: all .1s ease;
+				visibility: hidden;
+				z-index: 100;
+
+			}
+
+		}
+
+	}

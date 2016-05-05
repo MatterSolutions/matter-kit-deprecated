@@ -1,0 +1,45 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Images
+*	Base styling for images and SVG elements
+*
+ ---------------------------------------------------------- */
+
+
+img {
+
+	font-style: italic;
+	height: auto;
+	max-width: 100%;
+	vertical-align: middle;
+
+}
+
+.gm-style img {
+
+	max-width: none;
+
+}
+
+
+svg {
+
+	fill: currentColor;
+	vertical-align: baseline;
+
+}
+
+
+// Hide empty svg image elements
+.js-inject-svg[src=""] {
+
+	display: none;
+
+}

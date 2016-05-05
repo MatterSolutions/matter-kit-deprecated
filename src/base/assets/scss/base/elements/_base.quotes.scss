@@ -1,0 +1,76 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Quotes
+*	Adding quote marks before and after specific 'quote' like elements
+*
+ ---------------------------------------------------------- */
+
+
+//*	=Inline
+q {
+
+	font-style: italic;
+	quotes: '\201C' '\201D' '\2018' '\2019';
+
+	&:before {
+		content: open-quote;
+	}
+
+	&:after {
+		content: close-quote;
+	}
+
+}
+
+
+
+
+
+//*	=Block
+blockquote {
+
+	quotes: '\201C' '\201D';
+
+	p {
+
+		&:first-of-type:before {
+
+			//content: '\201C';
+
+		}
+
+
+		&:last-of-type {
+
+			margin-bottom: 0;
+
+			// &:after {
+			// 	content: '\201D';
+			// }
+
+		}
+
+	}
+
+	q {
+
+		quotes: '\2018' '\2019';
+
+		&:before {
+			content: '\2018';
+		}
+
+		&:after {
+			content: '\2019';
+		}
+
+	}
+
+}

@@ -1,0 +1,36 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Marker Styling
+*	Used to display information in a box over a Google Map
+*
+ ---------------------------------------------------------- */
+
+.marker {
+
+
+	&__body {
+
+		padding: calc-rem( $mk-base-spacing-unit--small );
+
+	}
+
+
+		// Location Name
+		&__title {}
+
+
+		// Physical Address
+		&__address {}
+
+
+		// Contact details
+		&__details {}
+
+}

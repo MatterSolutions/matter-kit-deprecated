@@ -1,0 +1,90 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Colophon
+*	Band containing the copyright and attribution blocks
+*
+ ---------------------------------------------------------- */
+
+$colophon-background-color: 			$mk-site-header-background-color;
+$colophon-padding-y: 					$mk-base-spacing-unit--small;
+$colophon-text-color: 					$mk-color-base-text;
+
+$colophon-media-breakpoint:				lap;
+$colophon-text-size: 					calc-type-scale( -1 );
+
+
+
+.colophon {
+
+	background-color: $colophon-background-color;
+	color: $colophon-text-color;
+	font-size: calc-rem( $colophon-text-size );
+	padding-bottom: calc-rem( $colophon-padding-y );
+	padding-top: calc-rem( $colophon-padding-y );
+
+
+
+	/*
+	*	Copyright, legal menu and social menu
+	*/
+	&__alpha {
+
+		text-align: center;
+
+		@include mk-media-query( "#{ $colophon-media-breakpoint }" ) {
+
+			text-align: left;
+			width: 75%;
+
+			.navigation--legal {
+
+				&:before {
+
+					content: " | ";
+
+				}
+
+			}
+
+			.icon,
+			svg {
+
+				vertical-align: middle;
+
+			}
+
+		}
+
+	}
+
+
+
+
+	&__beta {
+
+		text-align: center;
+
+		@include mk-media-query( false, "#{ $colophon-media-breakpoint }" ) {
+
+			margin-top: calc-em( $mk-base-spacing-unit );
+
+		}
+
+
+		@include mk-media-query( "#{ $colophon-media-breakpoint }" ) {
+
+			text-align: right;
+			width: 25%;
+
+		}
+
+	}
+
+}

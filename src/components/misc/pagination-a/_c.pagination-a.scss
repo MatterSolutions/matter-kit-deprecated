@@ -1,0 +1,62 @@
+.listing--lines-between + .pagination {
+
+	border-top: 1px solid $mk-color--grey-ui;
+	margin-top: calc-rem( $mk-base-spacing-unit );
+	padding-top: calc-rem( $mk-base-spacing-unit );
+
+}
+
+
+.pagination {
+
+	text-align: center;
+	padding-bottom: calc-rem( $mk-base-spacing-unit );
+
+
+	ul.page-numbers {
+
+		@extend .list--bare;
+		@extend .list--inline;
+		@extend .u-flush--bottom;
+
+	}
+
+	li > .page-numbers {
+
+		border: 1px solid transparent;
+		display: inline-block;
+		font-size: calc-rem( 20px );
+		height: calc-rem( ( $mk-base-spacing-unit + $mk-base-spacing-unit--small + $mk-base-spacing-unit--tiny ) );
+		line-height: calc-rem( ( $mk-base-spacing-unit + $mk-base-spacing-unit--nano ) );
+		padding: calc-rem( $mk-base-spacing-unit--tiny )  $mk-base-spacing-unit--tiny;
+		text-align: center;
+
+	}
+
+
+	a {
+
+		color: $mk-color--attention !important;
+		text-decoration: none;
+
+	}
+
+
+	.current {
+
+		border-color: $mk-color--secondary !important;
+		color: $mk-color--secondary;
+		padding: calc-rem( $mk-base-spacing-unit--tiny )  0 !important;
+		width: calc-rem( ( $mk-base-spacing-unit + $mk-base-spacing-unit--small + $mk-base-spacing-unit--tiny ) );
+
+	}
+
+
+	.next,
+	.prev {
+
+		display: none !important;
+
+	}
+
+}

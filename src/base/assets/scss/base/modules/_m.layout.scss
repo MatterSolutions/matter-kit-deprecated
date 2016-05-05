@@ -1,0 +1,433 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Layout
+*	Layout elements to align with the base grid
+*	Used with the col-x-x classes
+*
+* 	
+ ---------------------------------------------------------- */
+
+
+// Predefine the variables below in order to alter and enable specific features.
+$mk-layout-namespace		: $mk-namespace !default;
+
+$mk-layout-gutter			: $mk-grid-gutter !default;
+$mk-layout-gutter--tiny		: ( $mk-grid-gutter / 4 ) !default;
+$mk-layout-gutter--small	: ( $mk-grid-gutter / 2 ) !default;
+$mk-layout-gutter--large	: ( $mk-grid-gutter * 2 ) !default;
+$mk-layout-gutter--huge		: ( $mk-grid-gutter * 4 ) !default;
+
+$mk-enable-layout--tiny		: false !default;
+$mk-enable-layout--small	: true !default;
+$mk-enable-layout--large	: true !default;
+$mk-enable-layout--huge		: true !default;
+$mk-enable-layout--flush	: true !default;
+$mk-enable-layout--rev		: true !default;
+$mk-enable-layout--alternate: true !default;
+$mk-enable-layout--middle	: true !default;
+$mk-enable-layout--bottom	: false !default;
+$mk-enable-layout--right	: false !default;
+$mk-enable-layout--center	: false !default;
+$mk-enable-layout--auto		: true !default;
+$mk-enable-layout--split	: false !default;
+
+
+
+
+/**
+ * Begin a layout group.
+ */
+.#{$mk-layout-namespace}layout,
+%#{$mk-layout-namespace}layout {
+
+	list-style: none;
+	margin: 0;
+	margin-left: -( calc-rem( $mk-layout-gutter ) );
+	padding: 0;
+
+}
+
+	/**
+	 * 1. Cause columns to stack side-by-side.
+	 * 2. Space columns apart.
+	 * 3. Align columns to the tops of each other.
+	 * 4. Full-width unless told to behave otherwise.
+	 */
+	.#{$mk-layout-namespace}layout__item,
+	%#{$mk-layout-namespace}layout__item {
+
+		display: inline-block; /* [1] */
+		padding-left: calc-rem( $mk-layout-gutter ); /* [2] */
+		vertical-align: top; /* [3] */
+		width: 100%; /* [4] */
+		direction: ltr;
+
+	}
+
+
+
+
+
+@if ( $mk-enable-layout--tiny == true ) {
+
+	/**
+	 * Layouts with tiny gutters.
+	 */
+
+	.#{$mk-layout-namespace}layout--tiny,
+	%#{$mk-layout-namespace}layout--tiny {
+
+		margin-left: -( calc-rem( $mk-layout-gutter--tiny ) );
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			padding-left: calc-rem( $mk-layout-gutter--tiny );
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+@if ( $mk-enable-layout--small == true ) {
+
+	/**
+	 * Layouts with small gutters.
+	 */
+
+	.#{$mk-layout-namespace}layout--small,
+	%#{$mk-layout-namespace}layout--small {
+		margin-left: -( calc-rem( $mk-layout-gutter--small ) );
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+			padding-left: calc-rem( $mk-layout-gutter--small );
+		}
+
+	}
+
+}
+
+
+
+
+
+
+
+@if ( $mk-enable-layout--large == true ) {
+
+	/**
+	 * Layouts with large gutters.
+	 */
+
+	.#{$mk-layout-namespace}layout--large,
+	%#{$mk-layout-namespace}layout--large {
+
+		margin-left: -( calc-rem( $mk-layout-gutter--large ) );
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			padding-left: calc-rem( $mk-layout-gutter--large );
+
+		}
+
+	}
+
+}
+
+
+
+
+
+
+@if ( $mk-enable-layout--huge == true ) {
+
+	/**
+	 * Layouts with huge gutters.
+	 */
+
+	.#{$mk-layout-namespace}layout--huge,
+	%#{$mk-layout-namespace}layout--huge {
+
+		margin-left: -( calc-rem( $mk-layout-gutter--huge ) );
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			padding-left: calc-rem( $mk-layout-gutter--huge );
+
+		}
+
+	}
+
+}
+
+
+
+
+
+@if ( $mk-enable-layout--flush == true ) {
+
+	/**
+	 * Layouts with no gutters.
+	 */
+
+	.#{$mk-layout-namespace}layout--flush,
+	%#{$mk-layout-namespace}layout--flush {
+
+		margin-left: 0;
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			padding-left: 0;
+
+		}
+
+	}
+
+}
+
+
+
+
+
+@if ( $mk-enable-layout--rev == true ) {
+
+	/**
+	 * Reversed rendered order of layout items, e.g. items 1, 2, 3, 4 in your
+	 * markup will display in order 4, 3, 2, 1 on your page.
+	 */
+
+	.#{$mk-layout-namespace}layout--rev,
+	%#{$mk-layout-namespace}layout--rev {
+
+		direction: rtl;
+		text-align: left;
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			direction: ltr;
+			text-align: left;
+
+		}
+
+	}
+
+}
+
+
+
+
+@if ( $mk-enable-layout--alternate == true ) {
+
+	/**
+	 * Alternating reversal of list items
+	 * markup will display in order 4, 3, 2, 1 on your page.
+	 */
+
+	.#{$mk-layout-namespace}layout--alternate,
+	%#{$mk-layout-namespace}layout--alternate {
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			direction: ltr;
+			text-align: left;
+
+
+			&:nth-of-type( 2n ) {
+
+				direction: rtl;
+				text-align: left;
+
+			}
+
+		}
+
+
+		&.#{$mk-layout-namespace}layout--rev {
+
+			> %#{$mk-layout-namespace}layout__item {
+
+				direction: rtl;
+				text-align: left;
+
+
+				&:nth-of-type( 2n ) {
+
+					direction: ltr;
+					text-align: left;
+
+				}
+
+			}
+
+		}
+
+
+	}
+
+}
+
+
+
+
+
+@if ( $mk-enable-layout--middle == true ) {
+
+	/**
+	 * Align layout items to the vertical centers of each other.
+	 */
+
+	.#{$mk-layout-namespace}layout--middle,
+	%#{$mk-layout-namespace}layout--middle {
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			vertical-align: middle;
+
+		}
+
+	}
+
+}
+
+@if ( $mk-enable-layout--bottom == true ) {
+
+	/**
+	 * Align layout items to the vertical bottoms of each other.
+	 */
+
+	.#{$mk-layout-namespace}layout--bottom,
+	%#{$mk-layout-namespace}layout--bottom {
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			vertical-align: bottom;
+
+		}
+
+	}
+
+}
+
+
+
+
+
+@if ( $mk-enable-layout--right == true ) {
+
+	/**
+	 * Make the layout items fill up from the right hand side.
+	 */
+
+	.#{$mk-layout-namespace}layout--right,
+	%#{$mk-layout-namespace}layout--right {
+
+		text-align: right;
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			text-align: left;
+
+		}
+
+	}
+
+}
+
+@if ( $mk-enable-layout--center == true ) {
+
+	/**
+	 * Make the layout items fill up from the center outward.
+	 */
+
+	.#{$mk-layout-namespace}layout--center,
+	%#{$mk-layout-namespace}layout--center {
+
+		text-align: center;
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			text-align: left;
+
+		}
+
+	}
+
+}
+
+
+
+
+
+@if ( $mk-enable-layout--auto == true ) {
+
+	/**
+	 * Cause layout items to take up a non-explicit amount of width.
+	 */
+	.#{$mk-layout-namespace}layout--auto,
+	%#{$mk-layout-namespace}layout--auto {
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			width: auto;
+
+		}
+
+	}
+
+}
+
+
+
+@if ( $mk-enable-layout--split == true ) {
+
+	/**
+	 * Cause layout items to split left/right at a breakpoint
+	 */
+	.#{$mk-layout-namespace}layout--split,
+	%#{$mk-layout-namespace}layout--split {
+
+		> .#{$mk-layout-namespace}layout__item,
+		> %#{$mk-layout-namespace}layout__item {
+
+			text-align: left;
+
+		}
+
+		> .#{$mk-layout-namespace}layout__item:last-of-type,
+		> %#{$mk-layout-namespace}layout__item:last-of-type {
+
+			@include mk-media-query( "#{ $mk-element-breakpoint--content }" ) {
+
+				text-align: right;
+
+			}
+
+		}
+
+	}
+
+}

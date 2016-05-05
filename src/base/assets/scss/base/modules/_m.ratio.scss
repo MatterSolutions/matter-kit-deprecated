@@ -1,0 +1,56 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Ratio
+*	Specific ratios to keep some elements at a fixed size. 
+*	This will mostly be used for videos, but may be useful
+*	to extend for specific cases.
+*
+ ---------------------------------------------------------- */
+
+.#{$mk-namespace}ratio {
+
+	display: block;
+	padding: 0;
+	padding-bottom: 66.666%;
+	position: relative;
+	width: 100%;
+
+
+	// Begin elements
+	&__body {
+
+		@extend .u-fill;
+
+	}
+
+
+
+	// Begin modifiers
+	&--square {
+
+		padding-bottom: 100%;
+
+	}
+
+
+	&--video {
+
+		padding-bottom: 56.25%;
+
+		iframe {
+
+			@extend .u-fill;
+			max-width: none;
+
+		}
+
+	}
+
+}

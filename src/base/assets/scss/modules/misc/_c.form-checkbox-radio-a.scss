@@ -1,0 +1,196 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	=Checkboxes and Radio Buttons
+*	Styled checkbox and radio button styles, 
+*	these are together because they should have consistent styling
+*	Standard-looking rounded buttons with borders and coloured indicators
+*
+ ---------------------------------------------------------- */
+
+
+// Checkbox/radio button sizes
+$mk-form-check-box-size: 					floor( $mk-base-spacing-unit--small + $mk-base-spacing-unit--tiny );
+$mk-form-radio-button-size: 				$mk-form-check-box-size;
+$mk-form-check-box-label-font-weight: 		$mk-type-weight-primary;
+
+
+// Size of checked radio button indicator
+$radio-button-checked-size:  				ceil( $mk-form-radio-button-size / 2.6 );
+
+
+
+
+
+input[type="checkbox"],
+input[type="radio"] {
+
+	margin-right: calc-rem( $mk-base-spacing-unit--tiny );
+
+}
+
+
+
+/*
+*	Common styles shared between checkbox and radio buttons
+*	These are mostly structural styles, but the radio/checkbox outline has been included as well
+*/
+%mk-checkbox-parent,
+%mk-radio-button-parent {
+
+	position: relative;
+
+	// Checkbox input
+	> input {
+
+		left: 0;
+		opacity: 0;
+		position: absolute;
+		top: 0;
+
+
+		// Checkbox label
+		+ label {
+
+			cursor: pointer;
+			display: block;
+
+
+			// Checkbox/radio button outline/box AND the indicator element
+			&:before,
+			&:after {
+
+				content: ""; 
+				display: inline-block;
+				position: absolute;
+				top: 50%;
+
+			}
+
+
+			// Checkbox/radio button outline/box
+			&:before {
+
+				background-color: $mk-color-form-background;
+				border: $mk-form-border-width $mk-form-border-style $mk-color-form-border;
+				left: 0;
+
+			}
+
+		}
+
+	}
+
+}
+
+
+
+
+/*
+*	Specific Radio button styling
+*/
+%mk-radio-button {
+
+	// Radio button label, standard state
+	+ label {
+
+		padding-left: calc-em( ( $mk-form-radio-button-size + ( $mk-form-radio-button-size / 2 ) ) );
+		margin-bottom: calc-em( ( $mk-form-radio-button-size - $mk-form-input-text-size ) );
+		font-weight: $mk-form-check-box-label-font-weight;
+
+		// Outline element
+		&:before {
+
+			border-radius: 50%;
+			height: calc-em( $mk-form-radio-button-size );
+			width: calc-em( $mk-form-radio-button-size );
+			margin-top: -( calc-em( ( $mk-form-radio-button-size / 2 ) ) );
+
+		}
+
+	}
+
+	// Radio button label when selected
+	&:checked + label {
+
+		// Indicator element when selected
+		&:after {
+
+			background-color: $mk-color-form-checkbox;
+			border-radius: 50%;
+			height: calc-em( $radio-button-checked-size );
+			left: calc-em( ( ( $mk-form-radio-button-size - $radio-button-checked-size ) / 2 ) );
+			margin-top: -( calc-em( ( $radio-button-checked-size / 2 ) ) );
+			width: calc-em( $radio-button-checked-size );
+
+		}
+
+	}
+
+}
+
+
+
+/*
+*	Specific Checkbox Styling
+*/
+
+%mk-checkbox {
+
+	// Unchecked styling
+	+ label {
+
+		padding-left: calc-em( ( $mk-form-check-box-size + ( $mk-form-check-box-size / 2 ) ) );
+		margin-bottom: calc-em( ( $mk-form-check-box-size - $mk-form-input-text-size ) );
+		font-weight: $mk-form-check-box-label-font-weight;
+
+		// Checkbox 
+		&:before {
+
+			border-radius: $mk-form-border-radius;
+			height: calc-em( $mk-form-check-box-size );
+			width: calc-em( $mk-form-check-box-size );
+			margin-top: -( calc-em( $mk-form-check-box-size / 2 ) );
+
+		}
+
+	}
+
+
+	// Checked checkbox styling
+	&:checked + label {
+
+		// Checkbox size
+		&:before {
+
+			height: calc-em( $mk-form-check-box-size );
+			width: calc-em( $mk-form-check-box-size );
+
+		}
+
+
+		// Indicator (tick)
+		&:after {
+
+			$check-box-tick-size: 	( $mk-form-check-box-size - ( $mk-form-check-box-size / 2.5 ) );
+			$check-box-tick-width:	2px;
+
+			border-bottom: $check-box-tick-width solid $mk-color-form-checkbox;
+			border-right: $check-box-tick-width solid $mk-color-form-checkbox;
+			height: calc-em( $check-box-tick-size );
+			left: calc-em( ( $mk-form-check-box-size - $check-box-tick-size ) );
+			margin-top: -( calc-em( ( ( $check-box-tick-size / 2 ) + ceil( $check-box-tick-width / 2 ) ) ) );
+			transform: rotate( 45deg );
+			width: calc-em( ( ceil( $check-box-tick-size / 2.5 ) ) );
+
+		}
+
+	}
+
+}

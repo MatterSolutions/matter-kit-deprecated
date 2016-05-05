@@ -1,0 +1,88 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Overlay
+*	Add an overlay tint to darken image areas for better contrast for the content
+*
+ ---------------------------------------------------------- */
+
+$mk-enable-overlay-light: 		false;
+$mk-enable-overlay-heavy: 		false;
+
+
+
+
+ /*
+ *	Begin component output
+ */
+
+.#{$mk-namespace}overlay {
+
+	position: relative;
+
+	/*
+	*	Set the overlay itself as a pseudo element
+	*/
+	&:before {
+
+		@extend .u-fill;
+		background-color: $mk-color--tint;
+		content: "";
+		opacity: .3;
+		z-index: 2;
+
+	}
+
+
+	/*
+	*	Position the body elements relative, so they sit over the psuedo element overlay
+	*/
+	&__body {
+
+		position: relative;
+		z-index: 5;
+
+	}
+
+
+
+	
+
+	/*
+	*	Lighter Modifier
+	*/
+	@if ( $mk-enable-overlay-light == true ) {
+
+		&--light:before {
+
+			opacity: .1;
+
+		}
+
+	}
+
+
+
+
+
+	/*
+	*	Heavier/darker Overlay Modifier
+	*/
+	@if ( $mk-enable-overlay-heavy == true ) {
+
+		&--heavy:before {
+
+			opacity: .6;
+
+		}
+
+	}
+
+
+}

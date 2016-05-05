@@ -1,0 +1,468 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	Bands
+*	Base block elements for use within the page
+*	These include several padding sizes
+*
+* 	Dependancies:
+* 	- base.typography
+*
+ ---------------------------------------------------------- */
+
+
+ // Setup button type vars
+$band--tiny:					true !default;
+$band--small:					true !default;
+$band--large:					true !default;
+$band--huge:					true !default;
+$band--giga:					false !default;
+
+
+$band--primary: 				true !default;
+$band--secondary: 				false !default;
+$band--tertiary: 				false !default;
+$band--quaternary: 				false !default;
+$band--senary: 					false !default;
+$band--white: 					true !default;
+$band--grey: 					true !default;
+
+
+$band--background-fixed:		false !default;
+$band--background-fit:			false !default;
+
+$band--hero:					true !default;
+$band--attention:				true !default;
+
+
+
+/*
+*	Start Element
+*/
+
+.#{$mk-namespace}band {
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	padding-bottom: calc-rem( $mk-base-spacing-unit );
+	padding-top: calc-rem( $mk-base-spacing-unit );
+
+
+	&__body {
+
+		display: inline-block;
+		width: 100%;
+
+	}
+
+
+
+	/*
+	*	Tiny size
+	*/
+	@if ( $band--tiny  ==  true ) {
+
+		&--tiny {
+
+			padding-bottom: calc-rem( $mk-base-spacing-unit--tiny );
+			padding-top: calc-rem( $mk-base-spacing-unit--tiny );
+
+		}
+
+	}
+
+
+
+	/*
+	*	Small size
+	*/
+	@if ( $band--small  ==  true ) {
+
+		&--small {
+
+			padding-bottom: calc-rem( $mk-base-spacing-unit--small );
+			padding-top: calc-rem( $mk-base-spacing-unit--small );
+
+		}
+
+	}
+
+
+
+	/*
+	*	Large size
+	*/
+	@if ( $band--large  ==  true ) {
+
+		&--large {
+
+			padding-bottom: calc-rem( $mk-base-spacing-unit );
+			padding-top: calc-rem( $mk-base-spacing-unit );
+
+			@include mk-media-query( desk ) {
+
+				padding-bottom: calc-rem( $mk-base-spacing-unit--large );
+				padding-top: calc-rem( $mk-base-spacing-unit--large );
+
+			}
+
+		}
+
+	}
+
+
+
+	/*
+	*	Huge size
+	*/
+	@if ( $band--huge  ==  true ) {
+
+		&--huge {
+
+			padding-bottom: calc-rem( $mk-base-spacing-unit--large );
+			padding-top: calc-rem( $mk-base-spacing-unit--large );
+
+			@include mk-media-query( desk ) {
+
+				padding-bottom: calc-rem( $mk-base-spacing-unit--huge );
+				padding-top: calc-rem( $mk-base-spacing-unit--huge );
+
+			}
+
+		}
+
+	}
+
+
+
+	/*
+	*	Giga size
+	*/
+	@if ( $band--giga  ==  true ) {
+
+		&--giga {
+
+			padding-bottom: calc-rem( $mk-base-spacing-unit--huge );
+			padding-top: calc-rem( $mk-base-spacing-unit--huge );
+
+			@include mk-media-query( desk ) {
+
+				padding-bottom: calc-rem( $mk-base-spacing-unit--huge * 1.25 );
+				padding-top: calc-rem( $mk-base-spacing-unit--huge * 1.25 );
+
+			}
+
+
+			@include mk-media-query( wide ) {
+
+				padding-bottom: calc-rem( $mk-base-spacing-unit--huge * 1.5 );
+				padding-top: calc-rem( $mk-base-spacing-unit--huge * 1.5 );
+
+			}
+
+		}
+
+	}
+
+
+
+	// Background sizes
+
+	@if ( $band--background-fixed  ==  true ) {
+
+		&--background-fixed {
+
+			// Only enable on larger devices
+			@include mk-media-query( 1025px ) {
+		
+				background-attachment: fixed;
+
+			}
+
+		}
+
+	}
+
+
+	@if ( $band--background-fit  ==  true ) {
+
+		&--background-fit {
+
+			background-size: contain;
+
+		}
+
+	}
+
+
+
+
+	// Colours
+	@if ( $band--attention  ==  true ) {
+
+		&--attention {
+
+			background-color: $mk-color-btn-primary-background;
+
+			@if ( lightness( $mk-color--secondary ) < 50 ) {
+
+				color: $mk-color-btn-primary;
+
+				a:link {
+
+					color: $mk-color-btn-primary !important;
+
+				}
+
+			}
+
+			a:link {
+
+				&:hover {
+
+					text-decoration: underline !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $band--hero  ==  true ) {
+
+
+		/*
+		*	Dark background
+		*/
+		&--hero {
+
+			background-color: $mk-color--secondary;
+
+			@if ( lightness( $mk-color--secondary ) < 50 ) {
+
+				color: $mk-color--white;
+
+				label {
+
+					color: inherit;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $band--primary  ==  true ) {
+
+
+		/*
+		*	Primary background
+		*/
+		&--primary {
+
+			background-color: $mk-color--primary;
+
+			@if ( lightness( $mk-color--primary ) < 60 ) {
+
+				color: $mk-color--white;
+
+				label,
+				a {
+
+					color: inherit !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $band--secondary  ==  true ) {
+
+
+		/*
+		*	Secondary background
+		*/
+		&--secondary {
+
+			background-color: $mk-color--secondary;
+
+			@if ( lightness( $mk-color--secondary ) < 60 ) {
+
+				color: $mk-color--white;
+
+				label,
+				a {
+
+					color: inherit !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $band--tertiary  ==  true ) {
+
+
+		/*
+		*	Tertiary background
+		*/
+		&--tertiary {
+
+			background-color: $mk-color--tertiary;
+
+			@if ( lightness( $mk-color--tertiary ) < 60 ) {
+
+				color: $mk-color--white;
+
+				label,
+				a {
+
+					color: inherit !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $band--quaternary  ==  true ) {
+
+
+		/*
+		*	Quaternary background
+		*/
+		&--quaternary {
+
+			background-color: $mk-color--quaternary;
+
+			@if ( lightness( $mk-color--quaternary ) < 60 ) {
+
+				color: $mk-color--white;
+
+				label,
+				a {
+
+					color: inherit !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $band--senary  ==  true ) {
+
+
+		/*
+		*	Senary background
+		*/
+		&--senary {
+
+			background-color: $mk-color--senary;
+
+			@if ( lightness( $mk-color--senary ) < 60 ) {
+
+				color: $mk-color--white;
+
+				label,
+				a {
+
+					color: inherit !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	@if ( $band--white  ==  true ) {
+
+
+		/*
+		*	White background
+		*/
+		&--white {
+
+			background-color: $mk-color--white;
+
+		}
+
+	}
+
+
+
+	@if ( $band--grey  ==  true ) {
+
+
+		/*
+		*	Grey background
+		*/
+		&--grey {
+
+			background-color: $mk-color--grey-ui-light;
+
+			@if ( lightness( $mk-color--grey-ui-light ) < 60 ) {
+
+				color: $mk-color--white;
+
+				label,
+				a {
+
+					color: inherit !important;
+
+				}
+
+			}
+
+		}
+
+	}
+
+
+
+	&--extend {
+
+		margin-left: auto;
+		margin-right: auto;
+		max-width: calc-rem( $mk-wrap-max-size--extend );
+
+	}
+
+}

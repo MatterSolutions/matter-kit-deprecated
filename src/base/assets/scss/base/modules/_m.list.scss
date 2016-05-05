@@ -1,0 +1,187 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Lists
+*	Common styling for list elements
+*
+ ---------------------------------------------------------- */
+
+$list--inline: 				true;
+$list--bare: 				true;
+$list--decimal: 			false;
+$list--disc: 				false;
+$list--lower-roman: 		false;
+$list--delimited: 			true;
+$list--fancy-delimited: 	true;
+$list--comma-delimited: 	true;
+
+
+
+.#{$mk-namespace}list,
+%#{$mk-namespace}list {
+
+	> li { }
+
+
+	/*
+	*	Delimited lists
+	*/
+	@if ( $list--delimited  ==  true ) {
+	
+		&--delimited {
+
+			> li + li {
+
+				&:before {
+
+					content: " | ";
+
+				}
+				
+			}
+
+		}
+
+	}
+
+
+
+	/*
+	*	Lists without bullet points or numbers
+	*/
+	@if ( $list--bare  ==  true ) {
+	
+		&--bare {
+
+			list-style: none;
+			margin-left: 0 !important;
+
+		}
+
+	}
+
+
+
+	/*
+	*	Decimal lists
+	*/
+	@if ( $list--decimal  ==  true ) {
+	
+		&--decimal {
+
+			list-style: decimal;
+			
+		}
+
+	}
+
+
+
+	/*
+	*	Disc lists
+	*/
+	@if ( $list--disc  ==  true ) {
+	
+		&--disc {
+
+			list-style: disc;
+			
+		}
+
+	}
+
+
+
+	/*
+	*	Disc Lower Roman
+	*/
+	@if ( $list--lower-roman  ==  true ) {
+	
+		&--lower-roman {
+
+			list-style: lower-roman;
+			
+		}
+
+	}
+
+	
+
+
+	/*
+	*	Inline lists
+	*/
+	@if ( $list--inline  ==  true ) {
+	
+		&--inline {
+
+			padding-left: 0;
+
+			> li {
+
+				display: inline-block;
+				width: auto;
+
+			}
+
+		}
+
+	}
+
+
+	@if ( $list--fancy-delimited == true ) {
+
+		&--fancy-delimited {
+
+			> li + li {
+
+				&:before {
+
+					background-color: $mk-color-base-text;
+					border-radius: 50%;
+					content: "";
+					display: inline-block;
+					height: calc-rem( $mk-base-spacing-unit--nano );
+					width: calc-rem( $mk-base-spacing-unit--nano );
+					vertical-align: middle;
+					margin-left: calc-rem( $mk-base-spacing-unit--small );
+					margin-right: calc-rem( $mk-base-spacing-unit--small );
+
+				}
+
+			}
+
+		}
+
+	} // End if
+
+
+
+	@if( $list--comma-delimited ) {
+
+		&--comma-delimited {
+
+			> li:after {
+
+				content: ",";
+
+			}
+
+
+			> li:last-of-type:after {
+
+				content: "";
+
+			}
+
+		}
+
+	}
+
+}

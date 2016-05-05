@@ -1,0 +1,138 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*   Grid Feature - B
+*   Image, title, meta and excerpt with read more link beneath the image
+*
+ ---------------------------------------------------------- */
+
+// Content
+$feature-b-background-color:   		transparent;
+$feature-b-padding--x: 				0;
+$feature-b-padding--y: 				calc-rem( $mk-base-spacing-unit--small + $mk-base-spacing-unit--tiny );
+$feature-b-font-size: 				calc-rem( $mk-base-font-size * .9 );
+
+
+// Meta
+$feature-b-meta-font-size: 			calc-rem( $mk-base-font-size * .8333 );
+
+
+// Media
+$feature-b-bp: 						desk; // Element breakpoint to change ratio
+
+
+// CTA
+$feature-b-cta-alignment: 			center;
+$feature-b-cta-padding--x:			calc-rem( $mk-base-spacing-unit );
+$feature-b-cta-padding--y:			calc-rem( $mk-base-spacing-unit--small );
+
+
+
+
+
+/*
+*   Begin Grid Feature C
+*/
+.feature-b {
+
+	position: relative;
+
+	@if ( $feature-b-background-color != transparent ) {
+	
+		background-color: $feature-b-background-color;
+	
+	}
+
+
+		&__header {
+
+			position: relative;
+
+		}
+
+
+
+		&__badge {
+
+			left: 0;
+			position: absolute;
+			top: 0;
+			z-index: 3;
+
+		}
+
+
+
+		// Feature header image
+		&__media {
+
+			display: block;
+
+			img {
+
+				display: none;
+
+			}
+
+		}
+
+
+
+		// Pad the content - on mobile, this uses the gutter width
+		&__content {
+
+			padding: $feature-b-padding--y  $feature-b-padding--x;
+
+			@if ( $feature-b-background-color == 'transparent'  &&  $feature-b-padding--x == 0 ) {
+
+				padding-bottom: 0;
+
+			}
+
+		}
+
+
+
+		&__meta {
+
+			font-size: $feature-b-meta-font-size;
+			margin-bottom: calc-rem( $mk-base-spacing-unit--small );
+
+		}
+
+
+
+		&__cta {
+
+			padding-bottom: $feature-b-cta-padding--y;
+			text-align: $feature-b-cta-alignment;
+
+			@if ( $feature-b-padding--y == 0 ) {
+
+				margin-top: $feature-b-cta-padding--y;
+
+			}
+
+			> p {
+
+				padding-top: $feature-b-cta-padding--y;
+
+			}
+
+			@if ( $feature-b-cta-padding--x != 0 ) {
+
+				padding-left: $feature-b-cta-padding--x;
+				padding-right: $feature-b-cta-padding--x;
+
+			}
+
+		}
+
+
+}

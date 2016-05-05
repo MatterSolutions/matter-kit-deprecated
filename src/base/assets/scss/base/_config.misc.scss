@@ -1,0 +1,22 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \
+*                SOLUTIONS
+*
+*	This file contains miscellaneous global variables
+*
+*
+*     Dependancies:
+*     - None
+ ---------------------------------------------------------- */
+
+ 	$mk-base-border-radius:						0 !default;
+
+
+	// Header size - this may get modified by partials later
+	$mk-site-header-height: 					0 !default;
+	$mk-site-header-height--at-bp:				0 !default;

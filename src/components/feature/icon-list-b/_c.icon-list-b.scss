@@ -1,0 +1,63 @@
+/* --------------------------------------------------------
+*        __ __  __
+*      /  /   /   /     __/__/__
+*      \ /   /   /  __   /  /  __  (/__
+*       /   /   / /  /  /  /  /__) /  /
+*      /   /   / (__/__/_ /__/____/  /_/
+*              \ 
+*                SOLUTIONS
+*
+*	Secondary icon list
+*	Displays icon to the left of the text by default
+*
+ ---------------------------------------------------------- */
+
+$icon-list-b-major-bp: 				lap;
+$icon-list-b-media-size: 			$mk-icon-width--large;
+$icon-list-b-media-spacer: 			$mk-icon-spacer--large;
+
+
+
+// Begin icon list
+.icon-list-b {
+
+	position: relative;
+
+
+
+	&__media {
+
+		position: absolute;
+		top: 0;
+		left: 0;
+
+		img,
+		svg {
+
+			max-width: calc-rem( $icon-list-b-media-size );
+			max-height: calc-rem( $icon-list-b-media-size );
+
+		}
+
+	}
+
+
+
+	&__content {
+
+		padding-left: calc-rem( $icon-list-b-media-size + $icon-list-b-media-spacer );
+
+	}
+
+
+	&--v-center {
+
+		.icon-list-b__media {
+
+			@extend .u-vertical-center;
+
+		}
+
+	}
+
+}
