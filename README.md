@@ -17,7 +17,7 @@ We're using GruntJS for our dev dependencies and Bower for frontend dependencies
 We're currently looking for help with the documentation with the core components and bug reports.
 
 ## Bugs and Feature Requests
-If you encounter a bug or have a feature request, please send us an email at helpdesk@mattersolutions.com.au and we'll look into it. We aren't currently accepting pull requests.
+If you encounter a bug, please send us an email at helpdesk@mattersolutions.com.au and we'll look into it. We aren't currently accepting pull requests.
 
 Feature requests can also be sent to helpdesk@mattersolutions.com.au - we'll take them into consideration. Please note that we're intending to keep the core of this framework light, at least for now. Consider if your request is project-specific, or would be used across many projects. 
 
