@@ -32,6 +32,6 @@ Ben Maden
 
 ## Copyright and License
 
-Code and documentation are Copyright 2014-2016 Matter Solutions. The PHP code is released under the GPL V2 license. Other code files; (including, but not limited to) css, scss, javascript, images etc are released under the MIT license. 
+Code and documentation are Copyright 2016 Matter Solutions. The PHP code is released under the GPL V2 license. Other code files; (including, but not limited to) css, scss, javascript, images etc are released under the MIT license. 
 
 Credit has been given within code comments for any code from other sources.
