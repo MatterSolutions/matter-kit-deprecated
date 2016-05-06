@@ -4,7 +4,7 @@ The Matter Kit is a framework designed for custom WordPress theme development. O
 
 ## Documentation
 
-The documentation for the Matter Kit is publicy hosted at: https://kit.mattersolutions.com.au
+The documentation for the Matter Kit is publicy hosted at: http://kit.mattersolutions.com.au
 
 Code files have comments within them, however we have further notes on our documentation website.
 
@@ -23,12 +23,12 @@ Feature requests can also be sent to helpdesk@mattersolutions.com.au - we'll tak
 
 ## Major Contributors
 
-Hannah Malcolm
-Nathan Crowe
-Matt Sinagra
-Svanhild Egge
-Rowan Lines
-Ben Maden
+* Hannah Malcolm
+* Nathan Crowe
+* Matt Sinagra
+* Svanhild Egge
+* Rowan Lines
+* Ben Maden
 
 ## Copyright and License
 
