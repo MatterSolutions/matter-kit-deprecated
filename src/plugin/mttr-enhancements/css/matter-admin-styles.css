@@ -1,0 +1,18 @@
+/*
+*	Admin styles by Matter Solutions
+*/
+
+.column-featured_image {
+
+	width: 50px;
+
+}
+
+
+.column-featured_image img {
+
+	height: auto;
+	max-width: 50px;
+	width: 100%;
+
+}

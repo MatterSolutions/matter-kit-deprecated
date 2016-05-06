@@ -1,0 +1,27 @@
+/*
+*	ACF styles by Matter Solutions
+*	These are designed to make rows easier to distinguish
+*/
+
+.acf-field-56f60c9b08824 > .acf-input > .acf-repeater > table > tbody > tr > td {
+
+	border-top: 10px solid #ed217c !important;
+	padding-bottom: 2em !important;
+
+}
+
+.acf-field-56f60c9b08824 .acf-fc-layout-handle {
+
+	background-color: #21203a !important;
+	color: #fff !important;
+	font-weight: 900 !important;
+	text-transform: uppercase;
+
+}
+
+.acf-field-56f60c9b08824 .acf-flexible-content .acf-table,
+.acf-field-56f60c9b08824 .acf-fc-layout-handle {
+
+	border-color: #21203a !important;
+
+}
